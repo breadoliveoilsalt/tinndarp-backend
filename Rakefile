@@ -4,3 +4,8 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+desc "Starts Rails server on port 3001"
+task :start => :environment do
+  system "bundle exec rails s -p 3001"
+end
