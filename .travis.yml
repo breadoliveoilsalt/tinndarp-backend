@@ -6,6 +6,8 @@ before_install:
 
 cache: bundler
 
+script: rake spec
+
 deploy:
   provider: heroku
   api_key:

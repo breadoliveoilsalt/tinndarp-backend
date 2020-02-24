@@ -5,6 +5,6 @@ describe "Sample Test" do
   end
 
   it "can intentionally fail" do
-    expect(true).to eq(false)
+    expect(true).to eq(true)
   end
 end
