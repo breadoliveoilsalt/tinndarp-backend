@@ -6,7 +6,7 @@ before_install:
 
 cache: bundler
 
-script: rake spec
+script: bundle exec rake spec
 
 deploy:
   provider: heroku
