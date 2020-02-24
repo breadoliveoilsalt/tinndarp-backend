@@ -1,3 +1,11 @@
+rvm:
+  - 2.6.3
+
+before_install:
+  - gem install bundler
+
+cache: bundler
+
 deploy:
   provider: heroku
   api_key:
@@ -5,3 +13,4 @@ deploy:
   app: tinndarp-backend
   on:
     repo: breadoliveoilsalt/tinndarp-backend
+    branch: master
