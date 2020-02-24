@@ -1,17 +1,13 @@
 rvm:
-  - 2.6.3
-
+- 2.6.3
 before_install:
-  - gem install bundler
-
+- gem install bundler
 cache: bundler
-
 script: bundle exec rake spec
-
 deploy:
   provider: heroku
   api_key:
-    secure: EHyQ01TSfu5yc8zlYFZW4nvYFh4c8NqXDB4Qm7IWcP2meZWG2IY9lQS116zkfZrRk7WeTeMGhjBg/eybr0nyjQBTRAHQRgo/Y3cIGvWOR1w/LpbyBuC8yIzsGx6EM/tcecEYRAo+o2/L0hZsZs5400G3ByY+EAuoB8Cp64hoUuPo0V3UsNTgFsQXw5WncCCZSMLbcZn69B6FG00JdDqoN24CPYX40OG6hFq6O/FsBZSoDA+rRoEIigicNcAnT5WrEbceZO7TB4HWK1GLlwrKb8lW9OVYQB0NVL98R4lczyYfhnLbPCHrdawGc7KL7TiKtf6WLUEKftHGyEXUoJ3NzK4YFdVAr/+GiekIqYEd2/8Q0OyrXKAGWU0UQkzB6XoVXDJpOwJUSYJxHhgzSlj+nbnKC1N6zHRJ/WFoY1aTtI8gbr4694FkPEhNB64GL38X8Q2mezeASxJVRllE/R0TbA8SEhqWFhWPBer/C3W75a0wOAfrGYzyvbqPTaZ6m5JZAD8cxT2vQT29URTdNJNP56briTV6Pf9wu37j+OEIBKicGAoCZuK3c2lDCgrsQBqbWZKchwz0V8LsZYghjdNUJEsuFNbY6o8p4+wJuIf03ppsP1nfCYT4SzOiGUNU2wLZyPGoLAtZQAtd3ySerCgn5f1s/TZ0bvSkKziAXURclys=
+    secure: p3K5StUor2RSx0ofbLyh5Rsi8TcbfEWpAt8h++3BdY+uIMHQuGRu2r8+nF8JSxwNjlyj+F/FiU2p0yI2r8xpcy3/1X7PwzI8/sOv7YHQlzSTeEli2NB41gXc0FRZz5ORALU3BXF4CdSyruuoRrz+YQoNfrp0xkQ+t3BEiE0L/JIv6RhgCcyUTb+/4CUfhIXyqQYlDN6WKMGzgbY8dJsAs/O0aSy3DzKfcAETx7vxXP8TsBv4BHALKOiRFdbx5V0vlmaJ6BgBGDbg9geeEBdstmttSVh2M5gm9T6ftfBVBvBCDhVejmowMqp5g4HytyiYzUt4j2AfD5qnx5g9eA+LSKzmvMrz0WmlymTnKNYhGT/mCPYpPVT+2XGtDeZ25Bl7VG4mj0n2YHCCBdc/tJdcoEJlgvhRLGMFVKfVNnfoY3fu1O7+77E6Koqj/RqIn6iyF7eqg0NzKDPUAF78RwBKzfKtbS87Y6fIkl120N38AAnM6gFRoPhN9W6dyoFZ/Wlq+Sp9G0m25a+DKtdflnOYiEfTw+FwuK6sch94xvhSxwMCYT740ZLJwaJviQ41O1klhAuUp77vLtahAuG+MluC8NEeU6mjiNfXBtrFT36fuC2adNVPa2MjAWsOZa6ZC+GXhoA/r/n/xchGY9UcXzIghoQcE6yd/qKX+i10RT2haq0=
   app: tinndarp-backend
   on:
     repo: breadoliveoilsalt/tinndarp-backend
