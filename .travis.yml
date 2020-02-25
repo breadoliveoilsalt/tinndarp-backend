@@ -11,4 +11,5 @@ deploy:
   app: tinndarp-backend
   on:
     repo: breadoliveoilsalt/tinndarp-backend
-    branch: master
+    # branch: master
+    all_branches: true
