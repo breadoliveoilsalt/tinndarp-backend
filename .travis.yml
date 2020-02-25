@@ -3,6 +3,8 @@ rvm:
 before_install:
 - gem install bundler
 cache: bundler
+services:
+  - postgresql
 script: bundle exec rake spec
 deploy:
   provider: heroku
