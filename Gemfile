@@ -36,6 +36,7 @@ group :development, :test do
   gem 'capybara', '>= 2.15'
   gem 'factory_bot'
   gem 'database_cleaner'
+  gem 'hirb'
 end
 
 group :development do
