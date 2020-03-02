@@ -9,3 +9,10 @@ desc "Starts Rails server on port 3001"
 task :start => :environment do
   system "bundle exec rails s -p 3001"
 end
+
+Rake::Task["test"].clear
+
+desc "Runs rspec to for unit testing"
+task :test => :environment do
+  system "rspec"
+end

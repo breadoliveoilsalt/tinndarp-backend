@@ -1,24 +1,21 @@
-# README
+[![Build Status](https://travis-ci.com/breadoliveoilsalt/tinndarp-backend.svg?branch=master)](https://travis-ci.com/breadoliveoilsalt/tinndarp-backend)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# TINNDARP Backend
 
-Things you may want to cover:
+This project was bootstrapped with [Ruby on Rails](https://rubyonrails.org/).
 
-* Ruby version
+## To run the app in development mode:
 
-* System dependencies
+1. Fork it in GitHub and clone the master branch to your computer.
 
-* Configuration
+2. In your terminal, `cd` into the root directory of the app.
 
-* Database creation
+3. Run `bundle install` to download dependencies.
 
-* Database initialization
+4. Run `rake start`.  The app will start on port 3001.
 
-* How to run the test suite
+## To run unit tests:
 
-* Services (job queues, cache servers, search engines, etc.)
+After step 3 above:
 
-* Deployment instructions
-
-* ...
+  * Run `rake test`.
