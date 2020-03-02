@@ -9,6 +9,9 @@ cache: bundler
 services:
   - postgresql
 
+before_script:
+  - psql -c 'create database tinndarp_backend_test;' -U postgres
+
 script: bundle exec rake test
 
 deploy:
