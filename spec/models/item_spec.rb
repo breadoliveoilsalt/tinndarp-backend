@@ -15,7 +15,7 @@ RSpec.describe Item, type: :model do
     end
 
     it "an Item has a name" do
-      expect{@item.blah}.to_not raise_error(NoMethodError)
+      expect{@item.name}.to_not raise_error(NoMethodError)
     end
 
     it "an Item has a price" do
