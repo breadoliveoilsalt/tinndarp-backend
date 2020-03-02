@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_03_02_170800) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
-    t.float "price"
+    t.string "price"
     t.string "description"
   end
 
