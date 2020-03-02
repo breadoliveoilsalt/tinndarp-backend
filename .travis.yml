@@ -19,3 +19,5 @@ deploy:
   on:
     repo: breadoliveoilsalt/tinndarp-backend
     branch: master
+  after_deploy:
+    - heroku pg:reset DATABASE --confirm tinndarp-backend && heroku run rake db:migrate && heroku run rake db:seed
