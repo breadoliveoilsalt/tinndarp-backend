@@ -1,10 +1,7 @@
 class HomeController < ApplicationController
 
   def main
-    render :json => { :status => "Made it to the HomeController",
-                      :new_status => "Successful deploy to Heroku",
-                      :extra_status => "Confirm deploy on merging PR, for real this time"
-                    }
+    render :json => { :welcome => "Welcome to TINNDARP backend" }
   end
 
 end
