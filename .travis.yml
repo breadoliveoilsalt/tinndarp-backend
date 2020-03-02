@@ -1,11 +1,16 @@
 rvm:
 - 2.6.3
+
 before_install:
 - gem install bundler
-cache: bundler
+
+# cache: bundler
+
 services:
   - postgresql
-script: bundle exec rake spec
+
+script: bundle exec rake test
+
 deploy:
   provider: heroku
   api_key:
