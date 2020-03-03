@@ -25,6 +25,11 @@ RSpec.describe Item, type: :model do
     it "an Item has a description" do
       expect{@item.description}.to_not raise_error(NoMethodError)
     end
+
+    it "an Item has a link for more information " do
+      expect{@item.more_info_url}.to_not raise_error(NoMethodError)
+    end
+
   end
 
 end
