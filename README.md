@@ -2,6 +2,8 @@
 
 # TINNDARP Backend
 
+Link to app on Heroku: https://tinndarp-backend.herokuapp.com/
+
 This project was bootstrapped with [Ruby on Rails](https://rubyonrails.org/).
 
 ## To run the app in development mode:
