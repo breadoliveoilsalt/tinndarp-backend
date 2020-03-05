@@ -33,8 +33,10 @@ RSpec.describe User, type: :model do
       expect(user_2).to_not be_valid
     end
 
-    # it "defaults to creating a user with non-admin status" do
-    # end
+    it "defaults to creating a user with non-admin status" do
+      user = User.new(email: valid_email, password: valid_password)
+      expect(user.admin).to be false
+    end
 
 
   end
