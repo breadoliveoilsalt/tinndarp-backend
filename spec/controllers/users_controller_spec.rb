@@ -24,32 +24,41 @@ RSpec.describe Api::UsersController, type: :controller do
       expect(response.content_type).to eq("application/json; charset=utf-8")
     end
 
-    describe "the rendered JSON" do
-      render_views
+      describe "the rendered JSON" do
+        render_views
 
-      it "renders an errors key if the user credentials are invalid" do
-        post :create, {:params => { :user => { :email => "", :pasword => "" }}}
+        context "signing in with invalid credentials" do
 
-        parsed_response = JSON.parse(response.body)
-        expect(parsed_response["errors"]).to be_truthy
+          it "renders an errors key if the user credentials are invalid" do
+            post :create, {:params => { :user => { :email => "", :pasword => "" }}}
+
+            parsed_response = JSON.parse(response.body)
+            expect(parsed_response["errors"]).to be_truthy
+          end
+
+          it "renders values with full messages for errors" do
+            post :create, {:params => { :user => { :email => "bill@billy.com", :pasword => "" }}}
+
+            parsed_response = JSON.parse(response.body)
+
+            expect(parsed_response["errors"]).to eq(["Password can't be blank", "Password is too short (minimum is 8 characters)"])
+          end
+
+          it "raises an error if the params do not include a 'user' key" do
+            params = {:params => {
+              email: "billy@billy.com",
+              password: "billybilly"
+              }
+            }
+
+            expect{post :create, params}.to raise_error(ActionController::ParameterMissing)
+          end
+
       end
 
-      it "renders values with full messages for errors" do
-        post :create, {:params => { :user => { :email => "bill@billy.com", :pasword => "" }}}
+      context "signing in with valid credentials" do
 
-        parsed_response = JSON.parse(response.body)
-
-        expect(parsed_response["errors"]).to eq(["Password can't be blank", "Password is too short (minimum is 8 characters)"])
-      end
-
-      it "raises an error if the params do not include a 'user' key" do
-        params = {:params => {
-          email: "billy@billy.com",
-          password: "billybilly"
-          }
-        }
-
-        expect{post :create, params}.to raise_error(ActionController::ParameterMissing)
+      
       end
 
     end
