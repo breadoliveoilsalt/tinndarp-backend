@@ -51,14 +51,11 @@ RSpec.describe User, type: :model do
       expect(user.admin).to be true
     end
 
-    xit "does not create a password attribute" do
+    it "creates a password_digest attirbute that is different from the password" do
+      user = User.create(email: valid_email, password: valid_password, admin: true)
 
-
-    end
-
-    xit "creates a password_digest attirbute that is different from the password" do
-
-
+      expect(user.password_digest).to be_truthy
+      expect(user.password_digest).to_not equal(user.password)
     end
   end
 
