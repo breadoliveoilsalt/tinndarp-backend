@@ -42,6 +42,18 @@ RSpec.describe Api::UsersController, type: :controller do
         expect(parsed_response["errors"]).to eq(["Password can't be blank", "Password is too short (minimum is 8 characters)"])
       end
 
+      it "raises an error if the params do not include a 'user' key" do
+        params = {:params => {
+          email: "billy@billy.com",
+          password: "billybilly"
+          }
+        }
+
+        expect{post :create, params}.to raise_error(ActionController::ParameterMissing)
+      end
+
     end
+
   end
+
 end
