@@ -5,6 +5,6 @@ class Api::UsersController < ApplicationController
   end
 
   def create
-    render :json => {:controller => "user data"}.to_json
+    render :json => {:controller => "user data"}
   end
 end

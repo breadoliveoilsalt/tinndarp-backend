@@ -1,12 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe UsersController, type: :controller do
+RSpec.describe Api::UsersController, type: :controller do
 
   describe "POST create" do
     it "has a 200 status code" do
-
-      post '/api/sign_up', :params => {:message => "Hey there"}
-
+      post :create
       expect(response.status).to eq(200)
     end
 
