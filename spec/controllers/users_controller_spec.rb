@@ -5,7 +5,7 @@ RSpec.describe UsersController, type: :controller do
   describe "POST create" do
     it "has a 200 status code" do
 
-      post :create, :params => {}
+      post '/api/sign_up', :params => {:message => "Hey there"}
 
       expect(response.status).to eq(200)
     end

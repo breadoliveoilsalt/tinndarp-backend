@@ -4,9 +4,10 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show]
 
-  # namespace :api do
-  #   post "sign_up", to: "users#create"
-  # end
-  
+  namespace :api do
+    get "sign_up", to: "users#test"
     post "sign_up", to: "users#create"
+  end
+
+    # post "sign_up", to: "users#create"
 end
