@@ -25,6 +25,18 @@ RSpec.describe User, type: :model do
       expect(user_2).to be_valid
     end
 
+    it "is not valid without an `@` in the emmail address" do
+      user_1 = User.new(email: "tony", password: valid_password)
+      expect(user_1).to_not be_valid
+
+      user_2 = User.new(email: "tony.com", password: valid_password)
+      expect(user_2).to_not be_valid
+    end
+
+    # it "defaults to creating a user with non-admin status" do
+    # end
+
+
   end
 
 end
