@@ -38,6 +38,10 @@ RSpec.describe User, type: :model do
       expect(user.admin).to be false
     end
 
+    it "creates an admin if an admin flag is explicitly added" do
+      user = User.new(email: valid_email, password: valid_password, admin: true)
+      expect(user.admin).to be true
+    end
 
   end
 
