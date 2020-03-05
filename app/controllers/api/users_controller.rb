@@ -5,6 +5,19 @@ class Api::UsersController < ApplicationController
   end
 
   def create
-    render :json => {:controller => "user data"}
+    user = User.new(user_params)
+    if user.save
+      render :json => {:controller => "user data"}
+    else
+      render :json => {:errors => user.errors.full_messages}
+    end
   end
+
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :password)
+  end
+
 end
