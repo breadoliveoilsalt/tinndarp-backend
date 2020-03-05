@@ -12,6 +12,14 @@ RSpec.describe User, type: :model do
       expect(user).to_not be_valid
     end
 
+    it "requires a unique email address" do
+      user_1 = User.create(email: valid_email, password: valid_password)
+      expect(user_1).to be_valid
+
+      user_2 = User.create(email: valid_email, password: valid_password)
+      expect(user_2).to_not be_valid
+    end
+
     it "is not valid without password" do
       user = User.new(email: valid_email)
       expect(user).to_not be_valid
@@ -43,6 +51,15 @@ RSpec.describe User, type: :model do
       expect(user.admin).to be true
     end
 
+    xit "does not create a password attribute" do
+
+
+    end
+
+    xit "creates a password_digest attirbute that is different from the password" do
+
+
+    end
   end
 
 end
