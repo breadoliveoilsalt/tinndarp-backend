@@ -8,8 +8,8 @@ RSpec.describe Api::UsersController, type: :controller do
       expect(response.status).to eq(200)
     end
 
-    xit "returns JSON" do
-      get :index
+    it "returns JSON" do
+      post :create
 
       expect(response.content_type).to eq("application/json; charset=utf-8")
     end
