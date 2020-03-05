@@ -27,11 +27,19 @@ RSpec.describe Api::UsersController, type: :controller do
     describe "the rendered JSON" do
       render_views
 
-      it "renders an error if the user credentials are invalid" do
-        post :create, :params => { :user => { :email => "", :pasword => "" } }
+      it "renders an errors key if the user credentials are invalid" do
+        post :create, {:params => { :user => { :email => "", :pasword => "" }}}
 
         parsed_response = JSON.parse(response.body)
         expect(parsed_response["errors"]).to be_truthy
+      end
+
+      it "renders values with full messages for errors" do
+        post :create, {:params => { :user => { :email => "bill@billy.com", :pasword => "" }}}
+
+        parsed_response = JSON.parse(response.body)
+
+        expect(parsed_response["errors"]).to eq(["Password can't be blank", "Password is too short (minimum is 8 characters)"])
       end
 
     end
