@@ -1,4 +1,4 @@
-module JWTWrapper
+class JWTWrapper
 
   def encode(payload, expiration = 24.hours.from_now)
     payload[:expiration] = expiration
