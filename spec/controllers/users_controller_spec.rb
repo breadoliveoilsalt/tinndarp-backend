@@ -66,14 +66,30 @@ RSpec.describe Api::UsersController, type: :controller do
             expect{post :create, @invalid_params}.to raise_error(ActionController::ParameterMissing)
           end
 
+          it "dow not have a token" do
+            post :create, @invalid_params
+
+            parsed_response = JSON.parse(response.body)
+
+            expect(parsed_response["token"]).to be_nil
+          end
+
         context "signing in with valid credentials" do
 
-          it "returns a key with signed_in set to true" do
+          it "has a key with signed_in set to true" do
             post :create, @valid_params
 
             parsed_response = JSON.parse(response.body)
 
             expect(parsed_response["logged_in"]).to eq("true")
+          end
+
+          it "has a token" do
+            post :create, @valid_params
+
+            parsed_response = JSON.parse(response.body)
+
+            expect(parsed_response["token"]).to be_truthy
           end
 
         end
