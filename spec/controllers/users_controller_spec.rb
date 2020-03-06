@@ -29,8 +29,12 @@ RSpec.describe Api::UsersController, type: :controller do
 
         context "signing in with invalid credentials" do
 
+          before(:each) do
+            @invalid_params = {:params => { :user => { :email => "bill@billy.com", :pasword => "" }}}
+          end
+
           it "returns a key with signed_in set to false" do
-            post :create, valid_params
+            post :create, @invalid_params
 
             parsed_response = JSON.parse(response.body)
 
@@ -38,14 +42,13 @@ RSpec.describe Api::UsersController, type: :controller do
           end
 
           it "renders an errors key if the user credentials are invalid" do
-            post :create, {:params => { :user => { :email => "", :pasword => "" }}}
-
+            post :create, @invalid_params
             parsed_response = JSON.parse(response.body)
             expect(parsed_response["errors"]).to be_truthy
           end
 
           it "renders values with full messages for errors" do
-            post :create, {:params => { :user => { :email => "bill@billy.com", :pasword => "" }}}
+            post :create, @invalid_params
 
             parsed_response = JSON.parse(response.body)
 
@@ -53,13 +56,13 @@ RSpec.describe Api::UsersController, type: :controller do
           end
 
           it "raises an error if the params do not include a 'user' key" do
-            params = {:params => {
+            invalid_params = {:params => {
               email: "billy@billy.com",
               password: "billybilly"
               }
             }
 
-            expect{post :create, params}.to raise_error(ActionController::ParameterMissing)
+            expect{post :create, invalid_params}.to raise_error(ActionController::ParameterMissing)
           end
 
       end
