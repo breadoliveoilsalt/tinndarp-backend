@@ -1,5 +1,5 @@
 require_relative 'boot'
-
+require_relative '../lib/jwt_wrapper'
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
@@ -23,6 +23,8 @@ module TinndarpBackend
         resource '/items/*', headers: :any, methods: [:get, :options]
       end
     end
+
+    config.middleware.use JWTWrapper
 
   end
 
