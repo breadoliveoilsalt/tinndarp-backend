@@ -58,7 +58,14 @@ RSpec.describe Api::UsersController, type: :controller do
 
       context "signing in with valid credentials" do
 
-      
+        it "returns a key with signed_in set to true" do
+          post :create, valid_params
+
+          parsed_response = JSON.parse(response.body)
+
+          expect(parsed_response["logged_in"]).to eq("true")
+        end
+
       end
 
     end
