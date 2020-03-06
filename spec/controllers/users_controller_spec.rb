@@ -14,6 +14,7 @@ RSpec.describe Api::UsersController, type: :controller do
   end
 
   describe "POST create" do
+    
     it "has a 200 status code" do
       post :create, @valid_params
       expect(response.status).to eq(200)
