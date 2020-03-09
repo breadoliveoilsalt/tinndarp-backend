@@ -20,6 +20,7 @@ module TinndarpBackend
         origins '*'
         resource '/items', headers: :any, methods: [:get, :options]
         resource '/items/*', headers: :any, methods: [:get, :options]
+        resource '/api/sign_up', headers: :any, methods: [:post]
       end
     end
 
