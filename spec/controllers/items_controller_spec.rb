@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ItemsController, type: :controller do
+RSpec.describe Api::ItemsController, type: :controller do
 
   describe "GET index" do
     it "has a 200 status code" do
@@ -60,6 +60,6 @@ RSpec.describe ItemsController, type: :controller do
       end
 
     end
-    
+
   end
 end
