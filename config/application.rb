@@ -1,5 +1,4 @@
 require_relative 'boot'
-
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
@@ -19,8 +18,9 @@ module TinndarpBackend
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
-        resource '/items', headers: :any, methods: [:get, :options]
-        resource '/items/*', headers: :any, methods: [:get, :options]
+        resource '/api/items', headers: :any, methods: [:get, :options]
+        resource '/api/items/*', headers: :any, methods: [:get, :options]
+        resource '/api/sign_up', headers: :any, methods: [:post]
       end
     end
 
