@@ -27,11 +27,11 @@ class Api::UsersController < ApplicationController
 
   def encode(payload, expiration = 24.hours.from_now)
     payload[:expiration] = expiration
-    JWT.encode payload, Rails.application.secrets.secret_key_base, "HS256"
+    JWT.encode payload, ENV["SECRET_KEY_BASE"], "HS256"
   end
 
   def decode(token)
-    JWT.decode token, Rails.application.secrets.secret_key_base, true, { algorithm: "HS256" }
+    JWT.decode token, ENV["SECRET_KEY_BASE"], true, { algorithm: "HS256" }
   end
 
 end
