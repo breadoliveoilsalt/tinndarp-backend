@@ -11,10 +11,11 @@ RSpec.describe Api::UsersController, type: :controller do
             }
         }
       }
+      allow(ENV).to receive(:[]).with('SECRET_KEY_BASE').and_return("XYZdalfkjasdpfoijasdf1232")
   end
 
   describe "POST create" do
-    
+
     it "has a 200 status code" do
       post :create, @valid_params
       expect(response.status).to eq(200)

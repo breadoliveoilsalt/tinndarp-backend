@@ -14,5 +14,5 @@ Rake::Task["test"].clear
 
 desc "Runs rspec to for unit testing"
 task :test => :environment do
-  system "rspec"
+  system "rspec" 
 end
