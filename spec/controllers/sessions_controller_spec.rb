@@ -12,8 +12,8 @@ RSpec.describe Api::SessionsController, type: :controller do
     }
 
   before(:each) do
-    allow(ENV).to receive(:[]).with('SECRET_KEY_BASE').and_return("XYZdalfkjasdpfoijasdf1232")
     @user = User.new(email: "billy@billy.com", password: "billybilly")
+    # allow(ENV).to receive(:[]).with('SECRET_KEY_BASE').and_return("XYZdalfkjasdpfoijasdf1232")
   end
 
   after(:each) do
@@ -23,6 +23,7 @@ RSpec.describe Api::SessionsController, type: :controller do
   describe "POST create" do
 
     it "has a 200 status code" do
+
       post :create, @valid_params
       expect(response.status).to eq(200)
     end
