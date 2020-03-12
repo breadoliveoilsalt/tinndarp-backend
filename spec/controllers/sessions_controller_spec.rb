@@ -84,15 +84,15 @@ RSpec.describe Api::SessionsController, type: :controller do
             expect(parsed_response["token"]).to be_nil
           end
 
-    #     context "signing in with valid credentials" do
-    #
-    #       it "has a key with signed_in set to true" do
-    #         post :create, @valid_params
-    #
-    #         parsed_response = JSON.parse(response.body)
-    #
-    #         expect(parsed_response["logged_in"]).to eq("true")
-    #       end
+        context "signing in with valid credentials" do
+
+          it "has a key with signed_in set to true" do
+            post :create, @valid_params
+
+            parsed_response = JSON.parse(response.body)
+
+            expect(parsed_response["logged_in"]).to eq("true")
+          end
     #
     #       it "has a token" do
     #         post :create, @valid_params
@@ -102,8 +102,8 @@ RSpec.describe Api::SessionsController, type: :controller do
     #         expect(parsed_response["token"]).to be_truthy
     #       end
     #
-    #     end
-    #
+        end
+
       end
 
     end
