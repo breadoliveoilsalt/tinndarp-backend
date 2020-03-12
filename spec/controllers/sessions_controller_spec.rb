@@ -65,25 +65,25 @@ RSpec.describe Api::SessionsController, type: :controller do
 
             expect(parsed_response["errors"]).to eq(["Invalid credentials. Please try again."])
           end
-    #
-    #       it "raises an error if the params do not include a 'user' key" do
-    #         @invalid_params = {:params => {
-    #           email: "billy@billy.com",
-    #           password: "billybilly"
-    #           }
-    #         }
-    #
-    #         expect{post :create, @invalid_params}.to raise_error(ActionController::ParameterMissing)
-    #       end
-    #
-    #       it "does not have a token" do
-    #         post :create, @invalid_params
-    #
-    #         parsed_response = JSON.parse(response.body)
-    #
-    #         expect(parsed_response["token"]).to be_nil
-    #       end
-    #
+
+          it "raises an error if the params do not include a 'user' key" do
+            @invalid_params = {:params => {
+              email: "billy@billy.com",
+              password: "billybilly"
+              }
+            }
+
+            expect{post :create, @invalid_params}.to raise_error(ActionController::ParameterMissing)
+          end
+
+          it "does not have a token" do
+            post :create, @invalid_params
+
+            parsed_response = JSON.parse(response.body)
+
+            expect(parsed_response["token"]).to be_nil
+          end
+
     #     context "signing in with valid credentials" do
     #
     #       it "has a key with signed_in set to true" do
