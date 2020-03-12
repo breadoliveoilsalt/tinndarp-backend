@@ -2,7 +2,6 @@ class Api::SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    binding.pry
     user = User.find_by(email: user_params[:email])
     if user && user.authenticate(user_params[:password])
       token_payload = {:user_id => user.id}

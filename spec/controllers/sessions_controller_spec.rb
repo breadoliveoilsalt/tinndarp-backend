@@ -29,11 +29,11 @@ RSpec.describe Api::SessionsController, type: :controller do
       expect(response.status).to eq(200)
     end
 
-    # it "returns JSON" do
-    #   post :create, @valid_params
-    #
-    #   expect(response.content_type).to eq("application/json; charset=utf-8")
-    # end
+    it "returns JSON" do
+      post :create, @valid_params
+
+      expect(response.content_type).to eq("application/json; charset=utf-8")
+    end
     #
     #   describe "the rendered JSON" do
     #     render_views
