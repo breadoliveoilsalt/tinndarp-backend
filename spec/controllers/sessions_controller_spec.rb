@@ -93,15 +93,15 @@ RSpec.describe Api::SessionsController, type: :controller do
 
             expect(parsed_response["logged_in"]).to eq("true")
           end
-    #
-    #       it "has a token" do
-    #         post :create, @valid_params
-    #
-    #         parsed_response = JSON.parse(response.body)
-    #
-    #         expect(parsed_response["token"]).to be_truthy
-    #       end
-    #
+
+          it "has a token" do
+            post :create, @valid_params
+
+            parsed_response = JSON.parse(response.body)
+
+            expect(parsed_response["token"]).to be_truthy
+          end
+
         end
 
       end
