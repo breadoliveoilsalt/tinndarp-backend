@@ -13,7 +13,7 @@ class Api::SessionsController < ApplicationController
     else
       render :json => {
         :logged_in => "false",
-        :errors => user.errors.full_messages
+        :errors => ["Invalid credentials. Please try again."]
       }
    end
  end

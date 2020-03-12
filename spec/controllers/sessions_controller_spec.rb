@@ -34,37 +34,37 @@ RSpec.describe Api::SessionsController, type: :controller do
 
       expect(response.content_type).to eq("application/json; charset=utf-8")
     end
-    #
-    #   describe "the rendered JSON" do
-    #     render_views
-    #
-    #     context "signing in with invalid credentials" do
-    #
-    #       before(:each) do
-    #         @invalid_params = {:params => { :user => { :email => "bill@billy.com", :pasword => "" }}}
-    #       end
-    #
-    #       it "returns a key with signed_in set to false" do
-    #         post :create, @invalid_params
-    #
-    #         parsed_response = JSON.parse(response.body)
-    #
-    #         expect(parsed_response["logged_in"]).to eq("false")
-    #       end
-    #
-    #       it "renders an errors key if the user credentials are invalid" do
-    #         post :create, @invalid_params
-    #         parsed_response = JSON.parse(response.body)
-    #         expect(parsed_response["errors"]).to be_truthy
-    #       end
-    #
-    #       it "renders values with full messages for errors" do
-    #         post :create, @invalid_params
-    #
-    #         parsed_response = JSON.parse(response.body)
-    #
-    #         expect(parsed_response["errors"]).to eq(["Password can't be blank", "Password is too short (minimum is 8 characters)"])
-    #       end
+
+      describe "the rendered JSON" do
+        render_views
+
+        context "signing in with invalid credentials" do
+
+          before(:each) do
+            @invalid_params = {:params => { :user => { :email => "bill@billy.com", :pasword => "" }}}
+          end
+
+          it "returns a key with signed_in set to false" do
+            post :create, @invalid_params
+
+            parsed_response = JSON.parse(response.body)
+
+            expect(parsed_response["logged_in"]).to eq("false")
+          end
+
+          it "renders an errors key if the user credentials are invalid" do
+            post :create, @invalid_params
+            parsed_response = JSON.parse(response.body)
+            expect(parsed_response["errors"]).to be_truthy
+          end
+
+          it "renders an error message that the credientials are invalid" do
+            post :create, @invalid_params
+
+            parsed_response = JSON.parse(response.body)
+
+            expect(parsed_response["errors"]).to eq(["Invalid credentials. Please try again."])
+          end
     #
     #       it "raises an error if the params do not include a 'user' key" do
     #         @invalid_params = {:params => {
@@ -104,10 +104,10 @@ RSpec.describe Api::SessionsController, type: :controller do
     #
     #     end
     #
-    #   end
-    #
-    # end
-    #
+      end
+
+    end
+
   end
 
 end
