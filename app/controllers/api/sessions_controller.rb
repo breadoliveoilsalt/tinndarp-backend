@@ -1,9 +1,9 @@
-class Api::UsersController < ApplicationController
+class Api::SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    user = User.new(user_params)
-    if user.save
+    user = User.find_by(email: user_params[:email])
+    if user && user.authenticate(user_params[:password])
       render :json => {
         :logged_in => "true",
         :token => renderTokenFor(user)
@@ -11,9 +11,9 @@ class Api::UsersController < ApplicationController
     else
       render :json => {
         :logged_in => "false",
-        :errors => user.errors.full_messages
+        :errors => ["Invalid credentials. Please try again."]
       }
-    end
-  end
+   end
+ end
 
 end
