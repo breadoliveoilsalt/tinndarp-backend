@@ -17,9 +17,9 @@ class ApplicationController < ActionController::Base
   end
 
   def decode(token)
-    binding.pry
     begin
-      JWT.decode token, ENV["SECRET_KEY_BASE"], true, { algorithm: "HS256" }
+      full_decoding = JWT.decode token, ENV["SECRET_KEY_BASE"], false, { algorithm: "HS256" }
+      full_decoding[0]
     rescue
       {}
     end

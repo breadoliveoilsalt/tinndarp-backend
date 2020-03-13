@@ -113,9 +113,7 @@ RSpec.describe Api::UsersController, type: :controller do
            }}
          params = ActionController::Parameters.new(strong_params)
          allow(controller).to receive(:params).and_return(strong_params)
-         binding.pry
-
-
+         dlskjf
        end
     end
 
