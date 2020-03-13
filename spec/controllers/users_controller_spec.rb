@@ -102,4 +102,23 @@ RSpec.describe Api::UsersController, type: :controller do
 
   end
 
+  describe "GET authenticate_user_token" do
+
+    context "the user token is valid" do
+
+       it "should indicate the user is logged_in" do
+         controller.view_context.encode
+         strong_params = {:user => {
+           :token => encode({:user_id => 1})
+           }}
+         params = ActionController::Parameters.new(strong_params)
+         allow(controller).to receive(:params).and_return(strong_params)
+         binding.pry
+
+
+       end
+    end
+
+
+  end
 end

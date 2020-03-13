@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     params.require(:user).permit(:email, :password, :token)
   end
 
-  def renderTokenFor(user)
+  def render_token_for(user)
     token_payload = {:user_id => user.id}
     encode(token_payload)
   end
@@ -17,38 +17,13 @@ class ApplicationController < ActionController::Base
   end
 
   def decode(token)
+    binding.pry
     begin
       JWT.decode token, ENV["SECRET_KEY_BASE"], true, { algorithm: "HS256" }
     rescue
       {}
     end
   end
-
-  def authenticate_user
-    decoded_token = decode(user_params[:token])
-    if decoded_token[:user_id] && decoded_token[:expiration]
-      check_expiration(decoded_token)
-    else
-      render :json => {
-        :logged_in => "false",
-        :errors => "Invalid user credential"
-      }
-    end
-  end
-
- def check_expiration(decoded_token)
-   expiration = Time.new(decoded_token[:expiration])
-   if expiration < Time.now
-     render :json => {
-       :logged_in => "true"
-     }
-   else
-    render :json => {
-      :logged_in => "false",
-      :errors => "Log in has expired"
-    }
-   end
- end
 
   private
 

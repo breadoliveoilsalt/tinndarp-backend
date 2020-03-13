@@ -13,7 +13,6 @@ RSpec.describe Api::SessionsController, type: :controller do
       }
     @user = User.create(email: "billy@billy.com", password: "billybilly")
     ENV["SECRET_KEY_BASE"] = "XYZdalfkjasdpfoijasdf1232"
-    # allow(ENV).to receive(:[]).with('SECRET_KEY_BASE').and_return("XYZdalfkjasdpfoijasdf1232")
   end
 
   after(:each) do
