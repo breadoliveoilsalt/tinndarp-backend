@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
 
   def decode(token)
     begin
-      full_decoding = JWT.decode token, ENV["SECRET_KEY_BASE"], false, { algorithm: "HS256" }
+      full_decoding = JWT.decode token, ENV["SECRET_KEY_BASE"], true, { algorithm: "HS256" }
       full_decoding[0]
     rescue
       {}

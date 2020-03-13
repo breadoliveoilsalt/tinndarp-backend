@@ -14,7 +14,7 @@ This project was bootstrapped with [Ruby on Rails](https://rubyonrails.org/).
 
 3. Run `bundle install` to download dependencies.
 
-4. Run `rake start`.  The app will start on port 3001.
+4. Run `rake startDev`.  The app will start on port 3001.
 
 ## To run unit tests:
 
