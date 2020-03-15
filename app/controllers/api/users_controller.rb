@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
     if user.save
       render :json => {
         :logged_in => "true",
-        :token => renderTokenFor(user)
+        :token => render_token_for(user)
       }
     else
       render :json => {
@@ -15,5 +15,34 @@ class Api::UsersController < ApplicationController
       }
     end
   end
+
+  def authenticate_user_token
+    decoded_token = decode(user_params[:token])
+    if decoded_token["user_id"] && decoded_token["expiration"]
+      check_expiration(decoded_token)
+    else
+      render :json => {
+        :logged_in => "false",
+        :errors => "Invalid user credential"
+      }
+    end
+  end
+
+ private
+
+ def check_expiration(decoded_token)
+   expiration = Time.new(decoded_token["expiration"])
+   if expiration < Time.now
+     render :json => {
+       :logged_in => "true",
+       :token => user_params[:token]
+     }
+   else
+    render :json => {
+      :logged_in => "false",
+      :errors => "Log in has expired"
+    }
+   end
+ end
 
 end
