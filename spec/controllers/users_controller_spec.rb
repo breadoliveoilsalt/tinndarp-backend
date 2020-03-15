@@ -12,7 +12,6 @@ RSpec.describe Api::UsersController, type: :controller do
         }
       }
       ENV['SECRET_KEY_BASE'] = "xyz"
-      # allow(ENV).to receive(:[]).with('SECRET_KEY_BASE').and_return("XYZdalfkjasdpfoijasdf1232")
   end
 
   after(:each) do
