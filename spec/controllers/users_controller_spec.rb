@@ -11,7 +11,12 @@ RSpec.describe Api::UsersController, type: :controller do
             }
         }
       }
-      allow(ENV).to receive(:[]).with('SECRET_KEY_BASE').and_return("XYZdalfkjasdpfoijasdf1232")
+      ENV['SECRET_KEY_BASE'] = "xyz"
+      # allow(ENV).to receive(:[]).with('SECRET_KEY_BASE').and_return("XYZdalfkjasdpfoijasdf1232")
+  end
+
+  after(:each) do
+    ENV['SECRET_KEY_BASE'] = nil
   end
 
   describe "POST create" do
@@ -103,17 +108,25 @@ RSpec.describe Api::UsersController, type: :controller do
   end
 
   describe "GET authenticate_user_token" do
+    render_views
 
     context "the user token is valid" do
 
        it "should indicate the user is logged_in" do
-         controller.view_context.encode
-         strong_params = {:user => {
-           :token => encode({:user_id => 1})
-           }}
-         params = ActionController::Parameters.new(strong_params)
-         allow(controller).to receive(:params).and_return(strong_params)
-         dlskjf
+         valid_token = controller.encode({:user_id => 1})
+         strong_params =
+           { :params => {
+               :user => {
+                 :token => valid_token
+               }
+             }
+           }
+
+         get :authenticate_user_token, strong_params
+
+         parsed_response = JSON.parse(response.body)
+         expect(parsed_response["logged_in"]).to eq("true")
+         expect(parsed_response["token"]).to eq(valid_token)
        end
     end
 
