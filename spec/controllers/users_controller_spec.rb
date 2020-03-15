@@ -128,8 +128,28 @@ RSpec.describe Api::UsersController, type: :controller do
          expect(parsed_response["logged_in"]).to eq("true")
          expect(parsed_response["token"]).to eq(valid_token)
        end
+
     end
 
+    context "the user token is invalid" do
+
+       it "should indicate the user is not logged_in" do
+         strong_params =
+           { :params => {
+               :user => {
+                 :token => "xyz"
+               }
+             }
+           }
+
+         get :authenticate_user_token, strong_params
+
+         parsed_response = JSON.parse(response.body)
+         expect(parsed_response["logged_in"]).to eq("false")
+         expect(parsed_response["errors"]).to eq("Invalid user credential")
+       end
+
+    end
 
   end
 end
