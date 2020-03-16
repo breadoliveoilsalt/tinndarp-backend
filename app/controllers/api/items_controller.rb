@@ -11,16 +11,4 @@ class Api::ItemsController < ApplicationController
     render :json => item
   end
 
-  def browse
-    begin
-      decoded_token = decode(user_params[:token])
-      user = User.find_by(id: decoded_token[:user_id])
-
-    rescue
-      render :json => {
-        :errors => "Something went wrong. Please check user token."
-      }
-    end
-  end
-
 end
