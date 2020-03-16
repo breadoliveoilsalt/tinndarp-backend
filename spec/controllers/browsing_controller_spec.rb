@@ -35,7 +35,6 @@ RSpec.describe Api::BrowsingController, type: :controller do
     end
 
     it "renders JSON with the user's unrated items if the user has a valid token" do
-
       valid_token = controller.encode({:user_id => @user.id})
       strong_params =
         { :params => {
@@ -51,5 +50,24 @@ RSpec.describe Api::BrowsingController, type: :controller do
        parsed_response = JSON.parse(response.body)
        expect(parsed_response["items"]).to eq(expected_items)
     end
+
+    it "renders JSON with an error message if the user has an invalid token" do
+      invalid_token = "xyz"
+      strong_params =
+        { :params => {
+            :user => {
+              :token => invalid_token
+            }
+          }
+        }
+
+       get :browse, strong_params
+
+       parsed_response = JSON.parse(response.body)
+       expect(parsed_response["items"]).to eq(nil)
+       expect(parsed_response["errors"]).to be_truthy
+    end
+
   end
+
 end
