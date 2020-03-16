@@ -108,6 +108,18 @@ RSpec.describe User, type: :model do
 
   end
 
+  describe "#nopes" do
+
+    it "returns a list of user nopes" do
+      user = User.create(email: valid_email, password: valid_password)
+      nope_1 = Nope.create(user_id: user.id, item_id: 1)
+      nope_2 = Nope.create(user_id: user.id, item_id: 2)
+      user.nopes << [nope_1, nope_2]
+
+      expect(user.nopes).to eq([nope_1, nope_2])
+    end
+
+  end
   describe "#noped_items" do
 
     it "returns a list of noped items" do
