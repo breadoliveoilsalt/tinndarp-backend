@@ -120,6 +120,7 @@ RSpec.describe User, type: :model do
     end
 
   end
+  
   describe "#noped_items" do
 
     it "returns a list of noped items" do
