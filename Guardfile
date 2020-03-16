@@ -24,7 +24,10 @@
 #  * zeus: 'zeus rspec' (requires the server to be started separately)
 #  * 'just' rspec: 'rspec'
 
-guard :rspec, cmd: "bundle exec rspec" do
+secret_for_testing_purposes = "4b8b7e66a1772901f642d0c1984fe8dfa79eb8aa499f63c97b44deca2355748469fe74a84ae7b6917574a010291f98054b38be6b6f6f44029a505de5ddf91188"
+
+# guard :rspec, cmd: "bundle exec rspec" do
+guard :rspec, cmd: "SECRET_KEY_BASE=#{secret_for_testing_purposes} bundle exec rspec" do
   require "guard/rspec/dsl"
   dsl = Guard::RSpec::Dsl.new(self)
 
