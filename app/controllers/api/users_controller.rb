@@ -18,6 +18,7 @@ class Api::UsersController < ApplicationController
 
   def authenticate_user_token
     decoded_token = decode(user_params[:token])
+    ##TEST - can I change this to symbol?
     if decoded_token["user_id"] && decoded_token["expiration"]
       check_expiration(decoded_token)
     else
