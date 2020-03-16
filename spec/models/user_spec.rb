@@ -60,6 +60,19 @@ RSpec.describe User, type: :model do
 
   end
 
+  describe "#likes" do
+
+    it "returns a list of user likes" do
+      user = User.create(email: valid_email, password: valid_password)
+      like_1 = Like.create(user_id: user.id, item_id: 1)
+      like_2 = Like.create(user_id: user.id, item_id: 2)
+      user.likes << [like_1, like_2]
+
+      expect(user.likes).to eq([like_1, like_2])
+    end
+
+  end
+
   describe "#liked_items" do
 
     it "returns a list of liked items" do
