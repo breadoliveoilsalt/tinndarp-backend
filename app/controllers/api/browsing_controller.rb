@@ -3,7 +3,6 @@ class Api::BrowsingController < ApplicationController
 
   def browse
     begin
-      binding.pry
       decoded_token = decode(user_params[:token])
       user = User.find_by(id: decoded_token[:user_id])
       items = Item.all_unrated_by(user)
@@ -15,5 +14,6 @@ class Api::BrowsingController < ApplicationController
         :errors => "Something went wrong. Please check user token."
       }
     end
+  end
 
 end

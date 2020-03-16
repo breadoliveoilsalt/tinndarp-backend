@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Api::ItemsController, type: :controller do
+RSpec.describe Api::BrowsingController, type: :controller do
 
   describe "GET browse" do
 
@@ -47,13 +47,9 @@ RSpec.describe Api::ItemsController, type: :controller do
 
        get :browse, strong_params
 
-       expected_items = JSON.stringify([@item_2, @item_3])
+       expected_items = [JSON.parse(@item_2.to_json), JSON.parse(@item_3.to_json)]
        parsed_response = JSON.parse(response.body)
        expect(parsed_response["items"]).to eq(expected_items)
     end
   end
-
-
-
-
 end
