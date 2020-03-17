@@ -10,25 +10,36 @@ class Api::BrowsingController < ApplicationController
         :items => items
       }
     rescue
-      render :json => {
-        :errors => "Something went wrong. Please check user token."
-      }
+      error_message
     end
   end
 
   def create_like_or_nope
-    decoded_token = decode(browsing_params[:token])
-    if browsing_params[:liked] == "true"
-      Like.create(user_id: decoded_token[:user_id], item_id: browsing_params[:item_id])
-    elsif browsing_params[:liked] == "false"
-      Nope.create(user_id: decoded_token[:user_id], item_id: browsing_params[:item_id])
-    end
+    begin
+      decoded_token = decode(browsing_params[:token])
+      if browsing_params[:liked] == "true"
+        Like.create(user_id: decoded_token[:user_id], item_id: browsing_params[:item_id])
+      elsif browsing_params[:liked] == "false"
+        Nope.create(user_id: decoded_token[:user_id], item_id: browsing_params[:item_id])
+      end
+      render :json => {
+        :saved => "true"
+      }
+    rescue
+      error_message
+    end 
   end
 
   private
 
   def browsing_params
     params.require(:browsing).permit(:token, :user_id, :item_id, :liked)
+  end
+
+  def error_message
+    render :json => {
+      :errors => "Something went wrong. Please check user token."
+    }
   end
 
 end
