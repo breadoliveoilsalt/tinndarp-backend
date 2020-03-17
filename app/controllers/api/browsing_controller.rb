@@ -3,7 +3,7 @@ class Api::BrowsingController < ApplicationController
 
   def browse
     begin
-      decoded_token = decode(user_params[:token])
+      decoded_token = decode(browsing_params[:token])
       user = User.find_by(id: decoded_token[:user_id])
       items = Item.all_unrated_by(user)
       render :json => {
@@ -17,6 +17,18 @@ class Api::BrowsingController < ApplicationController
   end
 
   def create_like_or_nope
-
+    decoded_token = decode(browsing_params[:token])
+    if browsing_params[:liked] == "true"
+      Like.create(user_id: decoded_token[:user_id], item_id: browsing_params[:item_id])
+    elsif browsing_params[:liked] == "false"
+      Nope.create(user_id: decoded_token[:user_id], item_id: browsing_params[:item_id])
+    end
   end
+
+  private
+
+  def browsing_params
+    params.require(:browsing).permit(:token, :user_id, :item_id, :liked)
+  end
+
 end
