@@ -16,4 +16,7 @@ class Api::BrowsingController < ApplicationController
     end
   end
 
+  def create_like_or_nope
+
+  end
 end

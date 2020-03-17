@@ -35,10 +35,10 @@ RSpec.describe Api::BrowsingController, type: :controller do
     end
 
     it "renders JSON with the user's unrated items if the user has a valid token" do
-      valid_token = controller.encode({:user_id => @user.id})
-      strong_params =
-        { :params => {
-            :user => {
+      valid_token = controller.encode({:browsing_id => @user.id})
+      strong_params = {
+          :params => {
+            :browsing => {
               :token => valid_token
             }
           }
@@ -53,9 +53,9 @@ RSpec.describe Api::BrowsingController, type: :controller do
 
     it "renders JSON with an error message if the user has an invalid token" do
       invalid_token = "xyz"
-      strong_params =
-        { :params => {
-            :user => {
+      strong_params = {
+        :params => {
+            :browsing => {
               :token => invalid_token
             }
           }
@@ -70,4 +70,44 @@ RSpec.describe Api::BrowsingController, type: :controller do
 
   end
 
+  describe "POST create_like_or_nope" do
+
+    it "creates a Like if the item was liked by the user" do
+      valid_token = controller.encode({:user_id => @user.id})
+      strong_params = {
+        :params => {
+            :browsing => {
+              :token => valid_token,
+              :item_id => @item_1.id,
+              :liked => true
+            }
+          }
+        }
+
+       post :create_like_or_nope, strong_params
+
+       expect(Like.last.user_id).to eq(@user.id)
+       expect(Like.last.item_id).to eq(@item_1.id)
+    end
+
+    it "creates a Nope if the item was noped by the user" do
+      valid_token = controller.encode({:user_id => @user.id})
+      strong_params = {
+        :params => {
+            :browsing => {
+              :token => valid_token,
+              :item_id => @item_1.id,
+              :liked => false
+            }
+          }
+        }
+
+       post :create_like_or_nope, strong_params
+
+       expect(Nope.last.user_id).to eq(@user.id)
+       expect(Nope.last.item_id).to eq(@item_1.id)
+    end
+
+  end
+  
 end
