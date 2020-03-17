@@ -31,8 +31,8 @@ class Api::UsersController < ApplicationController
  private
 
  def check_expiration(decoded_token)
-   expiration = Time.new(decoded_token[:expiration])
-   if expiration < Time.now
+   expiration = Time.parse(decoded_token[:expiration])
+   if Time.now <= expiration
      render :json => {
        :logged_in => "true",
        :token => user_params[:token]
