@@ -19,12 +19,20 @@ class Api::BrowsingController < ApplicationController
       decoded_token = decode(browsing_params[:token])
       if browsing_params[:liked] == "true"
         Like.create(user_id: decoded_token[:user_id], item_id: browsing_params[:item_id])
+        render :json => {
+          :saved => "true"
+        }
       elsif browsing_params[:liked] == "false"
         Nope.create(user_id: decoded_token[:user_id], item_id: browsing_params[:item_id])
+        render :json => {
+          :saved => "true"
+        }
+      else 
+        render :json => {
+          :error => "Not saved"
+        }
       end
-      render :json => {
-        :saved => "true"
-      }
+
     rescue
       error_message
     end 
@@ -38,7 +46,7 @@ class Api::BrowsingController < ApplicationController
 
   def error_message
     render :json => {
-      :errors => "Something went wrong. Please check user token."
+      :errors => "Something went wrong with the server." 
     }
   end
 

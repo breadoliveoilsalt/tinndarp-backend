@@ -79,7 +79,7 @@ RSpec.describe Api::BrowsingController, type: :controller do
             :browsing => {
               :token => valid_token,
               :item_id => @item_1.id,
-              :liked => true
+              :liked => "true"
             }
           }
         }
@@ -97,7 +97,7 @@ RSpec.describe Api::BrowsingController, type: :controller do
             :browsing => {
               :token => valid_token,
               :item_id => @item_1.id,
-              :liked => false
+              :liked => "false"
             }
           }
         }
