@@ -15,5 +15,6 @@ Rake::Task["test"].clear
 
 desc "Runs rspec to for unit testing"
 task :test => :environment do
-  system "rspec"
+  secret_for_testing_purposes = "4b8b7e66a1772901f642d0c1984fe8dfa79eb8aa499f63c97b44deca2355748469fe74a84ae7b6917574a010291f98054b38be6b6f6f44029a505de5ddf91188"
+  system "SECRET_KEY_BASE=#{secret_for_testing_purposes} rspec"
 end

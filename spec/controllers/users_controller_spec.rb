@@ -108,7 +108,7 @@ RSpec.describe Api::UsersController, type: :controller do
 
   describe "GET authenticate_user_token" do
     render_views
-
+  
     context "the user token is valid" do
 
        it "should indicate the user is logged_in" do
@@ -146,6 +146,28 @@ RSpec.describe Api::UsersController, type: :controller do
          parsed_response = JSON.parse(response.body)
          expect(parsed_response["logged_in"]).to eq("false")
          expect(parsed_response["errors"]).to eq("Invalid user credential")
+       end
+
+    end
+
+    context "the user token is expired" do
+
+       it "should indicate the user is not logged_in" do
+         twenty_four_hours_ago = (Time.now - (61 * 60 * 24)).to_s
+         expired_token = controller.encode({:user_id => 1}, twenty_four_hours_ago)
+         strong_params =
+           { :params => {
+               :user => {
+                 :token => expired_token
+               }
+             }
+           }
+
+         get :authenticate_user_token, strong_params
+
+         parsed_response = JSON.parse(response.body)
+         expect(parsed_response["logged_in"]).to eq("false")
+         expect(parsed_response["errors"]).to eq("Log in has expired")
        end
 
     end
