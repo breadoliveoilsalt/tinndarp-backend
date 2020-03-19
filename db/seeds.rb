@@ -139,6 +139,188 @@ item_seed_data = [
     description: "Bed frame, birch, Eidfjord, Queen",
     price: "429.00",
     more_info_url: "https://www.ikea.com/us/en/p/gjoera-bed-frame-birch-eidfjord-s09210616/"
+  },
+  {
+    name: "SLATTUM",
+    image_url: "https://www.ikea.com/us/en/images/products/slattum-upholstered-bed-frame__0768245_PE754387_S5.JPG?f=s",
+    description: "Upholstered bed frame, Knisa light gray, Twin",
+    price: "99.00",
+    more_info_url: "https://www.ikea.com/us/en/p/slattum-upholstered-bed-frame-knisa-light-gray-80450126/"
+  },
+  {
+    name: "SLÄKT",
+    image_url: "https://www.ikea.com/us/en/images/products/slaekt-bed-frame-w-storage-slatted-bedbase__0648346_PE704865_S5.JPG?f=s",
+    description: "Bed frame w/storage+slatted bedbase, white, Twin",
+    price: "279.00",
+    more_info_url: "https://www.ikea.com/us/en/p/slaekt-bed-frame-w-storage-slatted-bedbase-white-s99291991/"
+  },
+  {
+    name: "SANDARED",
+    image_url: "https://www.ikea.com/us/en/images/products/sandared-pouffe__0560902_PE662686_S5.JPG?f=s",
+    description: "Pouffe, beige, 17 3/4",
+    price: "49.00",
+    more_info_url: "https://www.ikea.com/us/en/p/sandared-pouffe-beige-20385313/"
+  },
+  {
+    name: "STRANDMON",
+    image_url: "https://www.ikea.com/us/en/images/products/strandmon-footstool__0761765_PE751432_S5.JPG?f=s",
+    description: "Ottoman, Vibberbo black/beige",
+    price: "69.00",
+    more_info_url: "https://www.ikea.com/us/en/p/strandmon-ottoman-vibberbo-black-beige-50456969/"
+  },
+  {
+    name: "VIMLE",
+    image_url: "",
+    description: "Ottoman with storage, Gunnared medium gray",
+    price: "https://www.ikea.com/us/en/images/products/vimle-footstool-with-storage__0514353_PE639449_S5.JPG?f=s",
+    more_info_url: "https://www.ikea.com/us/en/p/vimle-ottoman-with-storage-gunnared-medium-gray-s99285495/"
+  },
+  {
+    name: "POÄNG",
+    image_url: "https://www.ikea.com/us/en/images/products/poaeng-footstool__0497275_PE629066_S5.JPG?f=s",
+    description: "Ottoman, birch veneer, Hillared anthracite",
+    price: "65.00",
+    more_info_url: "https://www.ikea.com/us/en/p/poaeng-ottoman-birch-veneer-hillared-anthracite-s99305950/"
+  },
+  {
+    name: "MICKE",
+    image_url: "https://www.ikea.com/us/en/images/products/micke-desk-white__0736020_PE740347_S5.JPG?f=s",
+    description: "Desk, white, 55 7/8x19 5/8",
+    price: "79.00",
+    more_info_url: "https://www.ikea.com/us/en/p/micke-desk-white-90214308/"
+  },
+  {
+    name: "MATHOPEN",
+    image_url: "https://www.ikea.com/us/en/images/products/mathopen-bedside-table__0535662_PE649548_S5.JPG?f=s",
+    description: "Nightstand, black-brown, 26 3/8x19 5/8",
+    price: "79.00",
+    more_info_url: "https://www.ikea.com/us/en/p/mathopen-nightstand-black-brown-70353927/"
+  },
+  {
+    name: "LINNMON / ADILS",
+    image_url: "https://www.ikea.com/us/en/images/products/linnmon-adils-table-black-brown-black__0737172_PE740915_S5.JPG?f=s",
+    description: "Table, black-brown, black, 47 1/4x23 5/8",
+    price: "38.99",
+    more_info_url: "https://www.ikea.com/us/en/p/linnmon-adils-table-black-brown-black-s39932562/"
+  },
+  {
+    name: "NORDEN",
+    image_url: "https://www.ikea.com/us/en/images/products/norden-gateleg-table-birch__66396_PE179294_S5.JPG?f=s",
+    description: "Gateleg table, birch, 10 1/4/35/59 7/8x31 1/2",
+    price: "199.00",
+    more_info_url: "https://www.ikea.com/us/en/p/norden-gateleg-table-birch-90423887/"
+  },
+  {
+    name: "LINNMON / ALEX",
+    image_url: "https://www.ikea.com/us/en/images/products/linnmon-alex-table-white__0737574_PE741174_S5.JPG?f=s",
+    description: "Table, white, 78 3/4x23 5/8",
+    price: "209.99",
+    more_info_url: "https://www.ikea.com/us/en/p/linnmon-alex-table-white-s59932698/"
+  },
+  {
+    name: "KALLAX",
+    image_url: "https://www.ikea.com/us/en/images/products/kallax-desk-combination-white__0366702_PE549115_S5.JPG?f=s",
+    description: "Workstation, white, 30 3/8x57 7/8x62 5/8",
+    price: "131.98",
+    more_info_url: "https://www.ikea.com/us/en/p/kallax-workstation-white-s19123063/"
+  },
+  {
+    name: "MICKE",
+    image_url: "https://www.ikea.com/us/en/images/products/micke-corner-workstation-black-brown__0734327_PE739443_S5.JPG?f=s",
+    description: "Corner workstation, black-brown, 39 3/8x55 7/8",
+    price: "149.00",
+    more_info_url: "https://www.ikea.com/us/en/p/micke-corner-workstation-black-brown-50244741/"
+  },
+  {
+    name: "NORDKISA",
+    image_url: "https://www.ikea.com/us/en/images/products/nordkisa-dressing-table-bamboo__0756073_PE748752_S5.JPG?f=s",
+    description: "Dressing table, bamboo, 29 7/8x18 1/2",
+    price: "149.00",
+    more_info_url: "https://www.ikea.com/us/en/p/nordkisa-dressing-table-bamboo-20439472/" 
+  },
+  {
+    name: "GERTON / ODDVALD",
+    image_url: "https://www.ikea.com/us/en/images/products/gerton-oddvald-table-beech-black__0736758_PE740713_S5.JPG?f=s",
+    description: "Table, beech, black, 61x29 1/2",
+    price: "130.00",
+    more_info_url: "https://www.ikea.com/us/en/p/gerton-oddvald-table-beech-black-s29870932/"
+  },
+  {
+    name: "HEMNES",
+    image_url: "https://www.ikea.com/us/en/images/products/hemnes-desk__0526711_PE645112_S5.JPG?f=s",
+    description: "Desk, dark gray gray stained, 61x25 5/8",
+    price: "299.00",
+    more_info_url: "https://www.ikea.com/us/en/p/hemnes-desk-dark-gray-gray-stained-30381729/"
+  },
+  {
+    name: "BRYGGJA",
+    image_url: "https://www.ikea.com/us/en/images/products/bryggja-chest-of-9-drawers__0778109_PE760066_S5.JPG?f=s",
+    description: "9-drawer chest, beige, 46 1/2x36 1/4",
+    price: "279.00",
+    more_info_url: "https://www.ikea.com/us/en/p/bryggja-9-drawer-chest-beige-90469309/"
+  },
+  {
+    name: "BRIMNES",
+    image_url: "https://www.ikea.com/us/en/images/products/brimnes-3-drawer-chest-gray-frosted-glass__0818104_PE774290_S5.JPG?f=s",
+    description: "3-drawer chest, gray, frosted glass, 30 3/4x37 3/8",
+    price: "129.00",
+    more_info_url: "https://www.ikea.com/us/en/p/brimnes-3-drawer-chest-gray-frosted-glass-10470284/"
+  },
+  {
+    name: "HEMNES",
+    image_url: "https://www.ikea.com/us/en/images/products/hemnes-chest-of-8-drawers__0627346_PE693299_S5.JPG?f=s",
+    description: "8-drawer dresser, white stain, 63x37 3/4",
+    price: "199.00",
+    more_info_url: "https://www.ikea.com/us/en/p/hemnes-8-drawer-dresser-white-stain-00318598/"
+  },
+  {
+    name: "LENNART",
+    image_url: "https://www.ikea.com/us/en/images/products/lennart-drawer-unit-white__0395412_PE564513_S5.JPG?f=s",
+    description: "Drawer unit, white",
+    price: "14.99",
+    more_info_url: "https://www.ikea.com/us/en/p/lennart-drawer-unit-white-30326177/"
+  },
+  {
+    name: "INNERSKÄR",
+    image_url: "https://www.ikea.com/us/en/images/products/innerskaer-pouffe-frame-in-outdoor__0759835_PE750514_S5.JPG?f=s",
+    description: "Pouffe frame, indoor/outdoor, 22 7/8 ",
+    price: "50.00",
+    more_info_url: "https://www.ikea.com/us/en/p/innerskaer-pouffe-frame-indoor-outdoor-70445376/"
+  },
+  {
+    name: "GÅRÖ / RISÖ",
+    image_url: "https://www.ikea.com/us/en/images/products/garoe-risoe-hammock-with-stand__0562742_PE663585_S5.JPG?f=s",
+    description: "Hammock with stand, gray, pale orange",
+    price: "95.00",
+    more_info_url: "https://www.ikea.com/us/en/p/garoe-risoe-hammock-with-stand-gray-pale-orange-s59251770/"
+  },
+  {
+    name: "HÖGSTEN",
+    image_url: "https://www.ikea.com/us/en/images/products/hoegsten-armchair-outdoor-white__0134126_PE290008_S5.JPG?f=s",
+    description: "Armchair, outdoor, white",
+    price: "99.00",
+    more_info_url: "https://www.ikea.com/us/en/p/hoegsten-armchair-outdoor-white-50209865/"
+  },
+  {
+    name: "BROMMÖ",
+    image_url: "https://www.ikea.com/us/en/images/products/brommoe-lounger-outdoor-brown-stained__0729482_PE737001_S5.JPG?f=s",
+    description: "Chaise, outdoor, brown stained black, brown",
+    price: "59.99",
+    more_info_url: "https://www.ikea.com/us/en/p/brommoe-chaise-outdoor-brown-stained-black-brown-40332682/"
+  },
+  {
+    name: "ÄPPLARÖ",
+    image_url: "https://www.ikea.com/us/en/images/products/aepplaroe-bench-with-backrest-outdoor-brown-stained__0728725_PE736423_S5.JPG?f=s",
+    description: "Bench with backrest, outdoor, brown stained brown",
+    price: "95.00",
+    more_info_url: "https://www.ikea.com/us/en/p/aepplaroe-bench-with-backrest-outdoor-brown-stained-brown-80208529/"
+  },
+  {
+    name: "ÄPPLARÖ / HÖGSTEN",
+    image_url: "https://www.ikea.com/us/en/images/products/aepplaroe-hoegsten-table-6-chairs-w-armrests-outdoor__0137732_PE296468_S5.JPG?f=s",
+    description: "Table+6 armchairs, outdoor, brown stained brown, white",
+    price: "623.00",
+    more_info_url: "https://www.ikea.com/us/en/p/aepplaroe-hoegsten-table-6-armchairs-outdoor-brown-stained-brown-white-s09898526/"
   }
 ]
 
@@ -151,12 +333,3 @@ item_seed_data.each do | item_data |
     Item.create(item_data)
   end
 end
-
-
-# # Item.create(
-# #   name: "",
-# #   image_url: "",
-# #   price: "",
-# #   description: "",
-# #   more_info_url: ""
-# # )
