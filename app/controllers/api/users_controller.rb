@@ -6,7 +6,8 @@ class Api::UsersController < ApplicationController
     if user.save
       render :json => {
         :logged_in => "true",
-        :token => render_token_for(user)
+        :token => render_token_for(user),
+        :user_email => user.email
       }
     else
       render :json => {
@@ -33,10 +34,12 @@ class Api::UsersController < ApplicationController
  def check_expiration(decoded_token)
    expiration = Time.parse(decoded_token[:expiration])
    if Time.now <= expiration
-     render :json => {
-       :logged_in => "true",
-       :token => user_params[:token]
-     }
+    user = User.find_by(id: decoded_token[:user_id])
+    render :json => {
+      :logged_in => "true",
+      :token => user_params[:token],
+      :user_email => user.email
+    }
    else
     render :json => {
       :logged_in => "false",

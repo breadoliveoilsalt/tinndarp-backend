@@ -6,7 +6,8 @@ class Api::SessionsController < ApplicationController
     if user && user.authenticate(user_params[:password])
       render :json => {
         :logged_in => "true",
-        :token => render_token_for(user)
+        :token => render_token_for(user),
+        :user_email => user.email
       }
     else
       render :json => {
