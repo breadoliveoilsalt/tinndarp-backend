@@ -170,9 +170,9 @@ item_seed_data = [
   },
   {
     name: "VIMLE",
-    image_url: "",
+    image_url: "https://www.ikea.com/us/en/images/products/vimle-footstool-with-storage__0514353_PE639449_S5.JPG?f=s",
     description: "Ottoman with storage, Gunnared medium gray",
-    price: "https://www.ikea.com/us/en/images/products/vimle-footstool-with-storage__0514353_PE639449_S5.JPG?f=s",
+    price: "",
     more_info_url: "https://www.ikea.com/us/en/p/vimle-ottoman-with-storage-gunnared-medium-gray-s99285495/"
   },
   {
@@ -329,7 +329,9 @@ item_seed_data.each do | item_data |
     name: item_data[:name], 
     more_info_url: item_data[:more_info_url]
   )
-  if !item
+  if item
+    item.update(item_data)
+  else
     Item.create(item_data)
   end
 end
