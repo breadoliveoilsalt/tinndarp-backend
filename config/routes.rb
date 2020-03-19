@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get "authenticate_user_token", to: "users#authenticate_user_token"
     get "browsing", to: "browsing#browse"
     post "browsing", to: "browsing#create_like_or_nope"
+    get "comparing", to "comparing#compare"
   end
 
 end
