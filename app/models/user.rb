@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :noped_items, :through => :nopes, :source => :item
 
   def find_liked_items_in_common_with(other_user)
-
+    self.liked_items & other_user.liked_items
   end
   
 end
