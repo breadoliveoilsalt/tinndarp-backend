@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Api::ItemsController, type: :controller do
 
+  # before do
+  #   Item.all.destroy_all
+  # end
+
   describe "GET index" do
     it "has a 200 status code" do
       get :index

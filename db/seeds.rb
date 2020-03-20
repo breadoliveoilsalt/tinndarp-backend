@@ -323,15 +323,18 @@ item_seed_data = [
     more_info_url: "https://www.ikea.com/us/en/p/aepplaroe-hoegsten-table-6-armchairs-outdoor-brown-stained-brown-white-s09898526/"
   }
 ]
-
-item_seed_data.each do | item_data |
-  item = Item.find_by(
-    name: item_data[:name], 
-    more_info_url: item_data[:more_info_url]
-  )
-  if item
-    item.update(item_data)
-  else
-    Item.create(item_data)
+if ENV['RAILS_ENV'] != "test"
+# unless Rails.env.test?
+# unless Rails.env.test?
+  item_seed_data.each do | item_data |
+    item = Item.find_by(
+      name: item_data[:name], 
+      more_info_url: item_data[:more_info_url]
+    )
+    if item
+      item.update(item_data)
+    else
+      Item.create(item_data)
+    end
   end
 end

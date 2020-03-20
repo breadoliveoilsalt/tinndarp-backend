@@ -4,12 +4,11 @@ RSpec::Expectations.configuration.on_potential_false_positives = :nothing
 
 RSpec.describe Item, type: :model do
 
-
-  before(:each) do
-    @item = Item.new
-  end
-
   describe "the properties of an Item" do
+
+    before(:each) do
+      @item = Item.new
+    end
 
     it "an Item has an image_url" do
       expect{@item.image_url}.to_not raise_error(NoMethodError)

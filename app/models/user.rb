@@ -7,4 +7,9 @@ class User < ApplicationRecord
   has_many :liked_items, :through => :likes, :source => :item
   has_many :nopes
   has_many :noped_items, :through => :nopes, :source => :item
+
+  def find_items_in_common_with(other_user)
+
+  end
+  
 end
