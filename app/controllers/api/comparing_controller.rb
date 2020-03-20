@@ -2,10 +2,8 @@ class Api::ComparingController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def compare
-      binding.pry
     begin
       decoded_token = decode(comparing_params[:token])
-      binding.pry
       user = User.find_by(id: decoded_token[:user_id])
       compared_user = User.find_by(email: comparing_params[:compare_to])
       if !compared_user

@@ -30,35 +30,32 @@ RSpec.describe Api::ComparingController, type: :controller do
       )
     end
 
-    it "finds the user based on the token and calls #find_liked_items_in_common_with on the user" do
-      user = stub_model User, 
-        :id => 1,
-        :find_liked_items_in_common_with => [@item_1, @item_2, @item_3]
-
-      # user = instance_double("User")
-      # user = mock_model("User")
-      allow(user).to receive(:id).and_return(1)
-      comparison_email = "someEmail@email.com"
+    xit "returns json with a list of commonly liked items if two users have liked items in common" do
+      user = User.create(email: "billy@billy.com", password: "password")
+      user.liked_items << [@item_1, @item_2]
+      compared_user = User.create(email: "johnny@johnny.com", password: "password")
+      compared_user.liked_items << [@item_1, @item_2]
 
       valid_params = {
         :params => {
           :comparing => {
             :token => controller.encode({:user_id => user.id}),
-            :compare_to => comparison_email 
+            :compare_to => compared_user.email 
           }
         }
       }
 
       get :compare, valid_params
 
-      expect(user).to receive(:find_liked_items_in_common_with).once
-    end
-
-    it "returns a 404 status code if #find_liked_items_in_common_with returns nil" do
+      parsed_response = JSON.parse(response.body)
 
     end
 
-    it "returns an error message if #find_liked_items_in_common_with returns nil" do
+    xit "returns a 404 status code if #find_liked_items_in_common_with returns nil" do
+
+    end
+
+    xit "returns an error message if #find_liked_items_in_common_with returns nil" do
 
     end
 
