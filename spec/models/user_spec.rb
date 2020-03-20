@@ -156,4 +156,20 @@ RSpec.describe User, type: :model do
 
   end
 
+  describe "#find_liked_items_in_common_with" do
+
+    it "returns an array of items that the user has in common with another user" do
+
+    end
+
+    it "returns an empty array if the user has no items in common with another user" do
+
+    end
+    
+    it "returns nil if the other user cannot be found" do
+
+    end
+
+  end
+
 end
