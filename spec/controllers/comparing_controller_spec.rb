@@ -70,18 +70,26 @@ RSpec.describe Api::ComparingController, type: :controller do
       expect(response.body["errors"]).to be_truthy 
     end
 
-    # xit "returns an error message if #find_liked_items_in_common_with returns nil" do
+    it "returns a 404 status code with error messages if user token is invalid" do
+      user = User.create(email: "billy@billy.com", password: "password")
+      user.liked_items << [@item_1, @item_2]
+      invalid_user_token = "xyz"
+      compared_user = User.create(email: "johnny@johnny.com", password: "password")
+      compared_user.liked_items << [@item_1, @item_2]
+      valid_params = {
+        :params => {
+          :comparing => {
+            :token => invalid_user_token,
+            :compare_to => compared_user.email 
+          }
+        }
+      }
 
-    # end
+      get :compare, valid_params
 
-    # xit "returns nil if the other user cannot be found" do
-    #   user = User.create(email: "billy@billy.com", password: "password")
-    #   user.liked_items << [@item_1, @item_2]
-
-    #   result = user.find_liked_items_in_common_with(compared_user)
-
-    #   expect(result).to be_nil
-    # end
+      expect(response.status).to eq(404)
+      expect(response.body["errors"]).to be_truthy 
+    end
 
   end
 
