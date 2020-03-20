@@ -2,10 +2,12 @@ class Api::ComparingController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def compare
+      binding.pry
     begin
-      decoded_token = decode(browsing_params[:token])
+      decoded_token = decode(comparing_params[:token])
+      binding.pry
       user = User.find_by(id: decoded_token[:user_id])
-      compared_user = User.find_by(email: browsing_params[:compare_to])
+      compared_user = User.find_by(email: comparing_params[:compare_to])
       if !compared_user
         render :json => {
               :errors => ["Record for requested comparison user does not exist"]
@@ -15,7 +17,7 @@ class Api::ComparingController < ApplicationController
         common_items = user.find_liked_items_in_common_with(compared_user)
         render :json => {
           :user_email => user.email,
-          :successful_comparison_to => browsing_params[:compare_to],
+          :successful_comparison_to => comparing_params[:compare_to],
           :common_items => common_items
         }
       end
