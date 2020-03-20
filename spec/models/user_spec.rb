@@ -147,14 +147,16 @@ RSpec.describe User, type: :model do
       expect(result).to eq([@item_1, @item_2])
     end
 
-  #   it "returns an empty array if the user has no items in common with another user" do
+    it "returns an empty array if the user has no items in common with another user" do
+      user = User.create(email: "billy@billy.com", password: "password")
+      user.liked_items << [@item_1, @item_2]
+      compared_user = User.create(email: "johnny@johnny.com", password: "password")
 
-  #   end
+      result = user.find_liked_items_in_common_with(compared_user)
+
+      expect(result).to eq([])
+    end
     
-  #   it "returns nil if the other user cannot be found" do
-
-  #   end
-
   end
 
 end

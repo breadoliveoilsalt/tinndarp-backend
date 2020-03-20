@@ -59,6 +59,15 @@ RSpec.describe Api::ComparingController, type: :controller do
 
     end
 
+    xit "returns nil if the other user cannot be found" do
+      user = User.create(email: "billy@billy.com", password: "password")
+      user.liked_items << [@item_1, @item_2]
+
+      result = user.find_liked_items_in_common_with(compared_user)
+
+      expect(result).to be_nil
+    end
+
   end
 
 end
