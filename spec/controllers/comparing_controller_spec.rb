@@ -30,7 +30,7 @@ RSpec.describe Api::ComparingController, type: :controller do
       )
     end
 
-    xit "returns json with a list of commonly liked items if two users have liked items in common" do
+    it "returns json with a list of commonly liked items if two users have liked items in common" do
       user = User.create(email: "billy@billy.com", password: "password")
       user.liked_items << [@item_1, @item_2]
       compared_user = User.create(email: "johnny@johnny.com", password: "password")
@@ -48,7 +48,8 @@ RSpec.describe Api::ComparingController, type: :controller do
       get :compare, valid_params
 
       parsed_response = JSON.parse(response.body)
-
+      expected_items = [JSON.parse(@item_1.to_json), JSON.parse(@item_2.to_json)]
+      expect(parsed_response["common_items"]).to eq(expected_items)
     end
 
     xit "returns a 404 status code if #find_liked_items_in_common_with returns nil" do
