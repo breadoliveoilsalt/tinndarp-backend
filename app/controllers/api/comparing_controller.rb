@@ -9,8 +9,7 @@ class Api::ComparingController < ApplicationController
       if !compared_user
         render :json => {
               :errors => ["Record for requested comparison user does not exist"]
-              },
-              :status => 404
+              }
       else 
         common_items = user.find_liked_items_in_common_with(compared_user)
         render :json => {
@@ -22,7 +21,7 @@ class Api::ComparingController < ApplicationController
     rescue
       render :json => {
           :errors => ["Sorry, there was an error trying to compare", "Token may be invalid", "Try logging in again", "Other user may not have been findable"]
-        }, :status => 404
+        }
     end
 
   end

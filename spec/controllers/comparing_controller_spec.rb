@@ -52,7 +52,7 @@ RSpec.describe Api::ComparingController, type: :controller do
       expect(parsed_response["common_items"]).to eq(expected_items)
     end
 
-    it "returns a 404 status code with error messages if the compared_to user cannot be found" do
+    it "returns an errors message if the compared_to user cannot be found" do
       user = User.create(email: "billy@billy.com", password: "password")
       user.liked_items << [@item_1, @item_2]
       valid_params = {
@@ -66,11 +66,10 @@ RSpec.describe Api::ComparingController, type: :controller do
 
       get :compare, valid_params
 
-      expect(response.status).to eq(404)
       expect(response.body["errors"]).to be_truthy 
     end
 
-    it "returns a 404 status code with error messages if user token is invalid" do
+    it "returns an errors message if user token is invalid" do
       user = User.create(email: "billy@billy.com", password: "password")
       user.liked_items << [@item_1, @item_2]
       invalid_user_token = "xyz"
@@ -87,7 +86,6 @@ RSpec.describe Api::ComparingController, type: :controller do
 
       get :compare, valid_params
 
-      expect(response.status).to eq(404)
       expect(response.body["errors"]).to be_truthy 
     end
 
