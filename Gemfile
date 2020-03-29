@@ -43,6 +43,7 @@ group :development, :test do
   gem 'factory_bot'
   gem 'database_cleaner'
   gem 'hirb'
+  gem 'rspec-activemodel-mocks'
 end
 
 group :development do

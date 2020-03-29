@@ -24,6 +24,7 @@ module TinndarpBackend
         resource '/api/log_in', headers: :any, methods: [:post]
         resource '/api/authenticate_user_token', headers: :any, methods: [:get]
         resource '/api/browsing', headers: :any, methods: [:get, :post]
+        resource '/api/comparing', headers: :any, methods: [:get]
       end
     end
 

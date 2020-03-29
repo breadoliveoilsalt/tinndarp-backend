@@ -112,7 +112,8 @@ RSpec.describe Api::UsersController, type: :controller do
     context "the user token is valid" do
 
        it "should indicate the user is logged_in" do
-         valid_token = controller.encode({:user_id => 1})
+         user = User.create(email: "billy@billy.com", password: "password")
+         valid_token = controller.encode({:user_id => user.id})
          strong_params =
            { :params => {
                :user => {
