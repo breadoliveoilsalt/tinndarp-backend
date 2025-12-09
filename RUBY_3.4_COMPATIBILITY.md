@@ -52,7 +52,25 @@ This document outlines compatibility issues and recommendations when upgrading f
 -   **Solution**: Updated constraint to `gem 'puma', '>= 4.3', '< 6.0'`
 -   **Result**: Puma 5.6.9 installed successfully
 
-### 6. **tzinfo with thread_safe**
+### 6. **Default Gems Removed in Ruby 3.4.0 (RESOLVED)**
+
+-   **Status**: ✅ **RESOLVED**
+-   **Issue**: Several standard library gems were removed from default gems in Ruby 3.4.0
+-   **Gems Added**:
+    -   `mutex_m` - Required by ActiveSupport
+    -   `logger` - Required by ActiveSupport (also requires explicit `require 'logger'` in application.rb)
+    -   `bigdecimal` - Required by ActiveSupport (also requires explicit `require 'bigdecimal'` in application.rb)
+    -   `drb` - Required for Rails parallel test runner
+-   **Solution**: Added all required gems to Gemfile and required logger/bigdecimal in config/application.rb
+
+### 7. **YAML Aliases (RESOLVED)**
+
+-   **Status**: ✅ **RESOLVED**
+-   **Issue**: Ruby 3.4's Psych requires explicit enabling of YAML aliases for security
+-   **Impact**: database.yml uses YAML aliases (`&default`, `<<: *default`)
+-   **Solution**: Created `config/initializers/psych_aliases.rb` to enable aliases by default
+
+### 8. **tzinfo with thread_safe**
 
 -   **Status**: ⚠️ **MINOR (Non-blocking)**
 -   **Current Version**: tzinfo 1.2.11 with thread_safe 0.3.6
@@ -68,7 +86,10 @@ This document outlines compatibility issues and recommendations when upgrading f
 2. ✅ **Fixed mimemagic issue**: Added `gem 'marcel', '~> 1.0'` to Gemfile
 3. ✅ **Updated listen constraint**: Changed to `gem 'listen', '>= 3.0.5', '< 4.0'`
 4. ✅ **Updated Puma constraint**: Changed to `gem 'puma', '>= 4.3', '< 6.0'`
-5. ✅ **Regenerated Gemfile.lock**: All dependencies resolved successfully
+5. ✅ **Added default gems removed in Ruby 3.4.0**: Added `mutex_m`, `logger`, `bigdecimal`, `drb` to Gemfile
+6. ✅ **Fixed logger/bigdecimal loading**: Added explicit requires in `config/application.rb`
+7. ✅ **Fixed YAML aliases**: Created `config/initializers/psych_aliases.rb` to enable YAML aliases
+8. ✅ **Regenerated Gemfile.lock**: All dependencies resolved successfully
 
 ### High Priority
 

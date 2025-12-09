@@ -33,6 +33,11 @@ gem 'rack-cors'
 
 # Fix for Ruby 3.4.6 compatibility: marcel 1.0+ removes mimemagic dependency
 gem 'marcel', '~> 1.0'
+# Fix for Ruby 3.4.6 compatibility: these gems were removed from default gems in Ruby 3.4.0
+gem 'mutex_m'
+gem 'logger'
+gem 'bigdecimal'
+gem 'drb'  # Required for Rails parallel test runner
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
