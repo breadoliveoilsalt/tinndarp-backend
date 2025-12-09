@@ -1,7 +1,4 @@
 require_relative 'boot'
-# Ruby 3.4.6 compatibility: require these before rails/all since they're no longer default gems
-require 'logger'
-require 'bigdecimal'
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
