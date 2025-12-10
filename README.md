@@ -16,8 +16,8 @@ This project was bootstrapped with [Ruby on Rails](https://rubyonrails.org/).
 
 4. Download PostgreSQL and set up the database:
 
-    - Create and migrate the development database: `rails db:create db:migrate`
-    - Create and prepare the test database: `RAILS_ENV=test rails db:create db:migrate`
+    - Create and migrate the development database: `rake db:create db:migrate`
+    - Create and prepare the test database: `RAILS_ENV=test rake db:create db:migrate`
 
 5. Run `rake startDev`. The app will start on port 3001.
 
