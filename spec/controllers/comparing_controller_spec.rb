@@ -37,15 +37,13 @@ RSpec.describe Api::ComparingController, type: :controller do
       compared_user.liked_items << [@item_1, @item_2]
 
       valid_params = {
-        :params => {
-          :comparing => {
-            :token => controller.encode({:user_id => user.id}),
-            :compare_to => compared_user.email 
-          }
+        comparing: {
+          token: controller.encode({:user_id => user.id}),
+          compare_to: compared_user.email
         }
       }
 
-      get :compare, valid_params
+      get :compare, params: valid_params
 
       parsed_response = JSON.parse(response.body)
       expected_items = [JSON.parse(@item_1.to_json), JSON.parse(@item_2.to_json)]
@@ -56,17 +54,15 @@ RSpec.describe Api::ComparingController, type: :controller do
       user = User.create(email: "billy@billy.com", password: "password")
       user.liked_items << [@item_1, @item_2]
       valid_params = {
-        :params => {
-          :comparing => {
-            :token => controller.encode({:user_id => user.id}),
-            :compare_to => "invalid_email@email.com" 
-          }
+        comparing: {
+          token: controller.encode({:user_id => user.id}),
+          compare_to: "invalid_email@email.com"
         }
       }
 
-      get :compare, valid_params
+      get :compare, params: valid_params
 
-      expect(response.body["errors"]).to be_truthy 
+      expect(response.body["errors"]).to be_truthy
     end
 
     it "returns error messages if user token is invalid" do
@@ -76,17 +72,15 @@ RSpec.describe Api::ComparingController, type: :controller do
       compared_user = User.create(email: "johnny@johnny.com", password: "password")
       compared_user.liked_items << [@item_1, @item_2]
       valid_params = {
-        :params => {
-          :comparing => {
-            :token => invalid_user_token,
-            :compare_to => compared_user.email 
-          }
+        comparing: {
+          token: invalid_user_token,
+          compare_to: compared_user.email
         }
       }
 
-      get :compare, valid_params
+      get :compare, params: valid_params
 
-      expect(response.body["errors"]).to be_truthy 
+      expect(response.body["errors"]).to be_truthy
     end
 
   end

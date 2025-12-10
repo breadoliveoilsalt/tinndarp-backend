@@ -3,14 +3,12 @@ require 'rails_helper'
 RSpec.describe Api::SessionsController, type: :controller do
 
   before(:each) do
-    @valid_params =
-     { :params => {
-         :user => {
-            email: "billy@billy.com",
-            password: "billybilly"
-            }
-        }
+    @valid_params = {
+      user: {
+        email: "billy@billy.com",
+        password: "billybilly"
       }
+    }
     @user = User.create(email: "billy@billy.com", password: "billybilly")
     ENV["SECRET_KEY_BASE"] = "XYZdalfkjasdpfoijasdf1232"
   end
@@ -24,12 +22,12 @@ RSpec.describe Api::SessionsController, type: :controller do
 
     it "has a 200 status code" do
 
-      post :create, @valid_params
+      post :create, params: @valid_params
       expect(response.status).to eq(200)
     end
 
     it "returns JSON" do
-      post :create, @valid_params
+      post :create, params: @valid_params
 
       expect(response.content_type).to eq("application/json; charset=utf-8")
     end
@@ -40,11 +38,11 @@ RSpec.describe Api::SessionsController, type: :controller do
         context "signing in with invalid credentials" do
 
           before(:each) do
-            @invalid_params = {:params => { :user => { :email => "bill@billy.com", :pasword => "" }}}
+            @invalid_params = { user: { email: "bill@billy.com", pasword: "" } }
           end
 
           it "returns a key with signed_in set to false" do
-            post :create, @invalid_params
+            post :create, params: @invalid_params
 
             parsed_response = JSON.parse(response.body)
 
@@ -52,13 +50,13 @@ RSpec.describe Api::SessionsController, type: :controller do
           end
 
           it "renders an errors key if the user credentials are invalid" do
-            post :create, @invalid_params
+            post :create, params: @invalid_params
             parsed_response = JSON.parse(response.body)
             expect(parsed_response["errors"]).to be_truthy
           end
 
           it "renders an error message that the credientials are invalid" do
-            post :create, @invalid_params
+            post :create, params: @invalid_params
 
             parsed_response = JSON.parse(response.body)
 
@@ -66,17 +64,16 @@ RSpec.describe Api::SessionsController, type: :controller do
           end
 
           it "raises an error if the params do not include a 'user' key" do
-            @invalid_params = {:params => {
+            @invalid_params = {
               email: "billy@billy.com",
               password: "billybilly"
-              }
             }
 
-            expect{post :create, @invalid_params}.to raise_error(ActionController::ParameterMissing)
+            expect{post :create, params: @invalid_params}.to raise_error(ActionController::ParameterMissing)
           end
 
           it "does not have a token" do
-            post :create, @invalid_params
+            post :create, params: @invalid_params
 
             parsed_response = JSON.parse(response.body)
 
@@ -86,7 +83,7 @@ RSpec.describe Api::SessionsController, type: :controller do
         context "signing in with valid credentials" do
 
           it "has a key with signed_in set to true" do
-            post :create, @valid_params
+            post :create, params: @valid_params
 
             parsed_response = JSON.parse(response.body)
 
@@ -94,7 +91,7 @@ RSpec.describe Api::SessionsController, type: :controller do
           end
 
           it "has a token set to expire in 24 hours by default" do
-            post :create, @valid_params
+            post :create, params: @valid_params
 
             parsed_response = JSON.parse(response.body)
 
@@ -108,18 +105,16 @@ RSpec.describe Api::SessionsController, type: :controller do
             expect(Time.parse(decoded_token[:expiration])).to be > Time.parse(just_under_24_hours_from_now)
           end
 
-          it "provides a token set to expire 10 years from now, if the params include persistent_token set to true" do 
-            valid_params = { 
-              :params => {
-                :user => {
-                  email: "billy@billy.com",
-                  password: "billybilly",
-                  persistent_token: true
-                }
+          it "provides a token set to expire 10 years from now, if the params include persistent_token set to true" do
+            valid_params = {
+              user: {
+                email: "billy@billy.com",
+                password: "billybilly",
+                persistent_token: true
               }
             }
 
-            post :create, valid_params
+            post :create, params: valid_params
 
             parsed_response = JSON.parse(response.body)
             token = parsed_response["token"]

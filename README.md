@@ -14,10 +14,17 @@ This project was bootstrapped with [Ruby on Rails](https://rubyonrails.org/).
 
 3. Run `bundle install` to download dependencies.
 
-4. Run `rake startDev`.  The app will start on port 3001.
+4. Download PostgreSQL and set up the database:
+
+    - Create and migrate the development database: `rake db:create db:migrate db:seed`
+    - Create and prepare the test database: `RAILS_ENV=test rake db:create db:migrate`
+
+5. Run `rake startDev`. The app will start on port 3001.
 
 ## To run unit tests:
 
-After step 3 above:
+After step 4 above (database setup):
 
-  * Run `rake test`.
+-   Run `rake test`.
+
+Note: If you get a "database does not exist" error, make sure you've run the database setup commands in step 4.
