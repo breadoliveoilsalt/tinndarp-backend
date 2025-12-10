@@ -9,10 +9,10 @@
 item_seed_data = [
   {
     name: "GJÖRA",
-    image_url: "https://www.ikea.com/us/en/images/products/gjoera-bed-frame__0524587_PE644399_S5.JPG?f=s",
+    image_url: "https://www.ikea.com/us/en/images/products/tarva-bed-frame-pine-luroey__0637611_pe698421_s5.jpg?f=xl",
     description: "Bed frame, birch, Eidfjord, Queen",
     price: "429.00",
-    more_info_url: "https://www.ikea.com/us/en/p/gjoera-bed-frame-birch-eidfjord-s09210616/"
+    more_info_url: "https://www.ikea.com/us/en/p/tarva-bed-frame-pine-luroey-s29007794/"
   },
   {
     name: "BJÖRKSNÄS",
@@ -57,9 +57,9 @@ item_seed_data = [
     more_info_url: "https://www.ikea.com/us/en/p/knopparp-sofa-knisa-light-gray-20424625/"
   },
   {
-    name: "STRANDMON", 
+    name: "STRANDMON",
     image_url: "https://www.ikea.com/us/en/images/products/strandmon-wing-chair__0761768_PE751434_S5.JPG?f=s",
-    price: "249.00", 
+    price: "249.00",
     description: "Wing chair, Vibberbo black/beige",
     more_info_url: "https://www.ikea.com/us/en/p/strandmon-wing-chair-vibberbo-black-beige-40456960/"
   },
@@ -69,13 +69,13 @@ item_seed_data = [
     description: "Armchair, Vissle dark gray, Kabusa dark gray",
     price: "129.00",
     more_info_url: "https://www.ikea.com/us/en/p/bingsta-armchair-vissle-dark-gray-kabusa-dark-gray-40454230/"
-  }, 
+  },
   {
     name: "HAVSTEN",
-    image_url: "https://www.ikea.com/us/en/images/products/havsten-3-seat-sofa-in-outdoor__0668272_PE714338_S5.JPG?f=s",
+    image_url: "https://www.ikea.com/us/en/images/products/morabo-sofa-grann-bomstad-golden-brown-wood__0602112_pe680181_s5.jpg?f=xl",
     description: "Sofa, in/outdoor, orange, beige, 102 3/8x37x35 3/8",
     price: "750.00",
-    more_info_url: "https://www.ikea.com/us/en/p/havsten-sofa-in-outdoor-orange-beige-s89282628/"
+    more_info_url: "https://www.ikea.com/us/en/p/morabo-sofa-grann-bomstad-golden-brown-wood-s29317758/"
   },
   {
     name: "EKTORP",
@@ -93,10 +93,10 @@ item_seed_data = [
   },
   {
     name: "SÖDERHAMN",
-    image_url: "https://www.ikea.com/us/en/images/products/soederhamn-4-seat-sofa__0666467_PE713558_S5.JPG?f=s",
+    image_url: "https://www.ikea.com/us/en/images/products/klippan-loveseat-langban-bright-blue__1315052_pe940371_s5.jpg?f=xl",
     description: "Sectional, 4-seat, with chaise, Finnsta turquoise",
     price: "647.00",
-    more_info_url: "https://www.ikea.com/us/en/p/soederhamn-sectional-4-seat-with-chaise-finnsta-turquoise-s79284350/"
+    more_info_url: "https://www.ikea.com/us/en/p/klippan-loveseat-langban-bright-blue-s29564287/"
   },
   {
     name: "VIMLE",
@@ -113,7 +113,7 @@ item_seed_data = [
     more_info_url: "https://www.ikea.com/us/en/p/nordli-bed-with-headboard-and-storage-anthracite-s39241409/"
   },
   {
-    name: "SAGSTUA", 
+    name: "SAGSTUA",
     image_url: "https://www.ikea.com/us/en/images/products/sagstua-bed-frame__0783218_PE761516_S5.JPG?f=s",
     description: "Bed frame, white, Full",
     price: "149.00",
@@ -121,10 +121,10 @@ item_seed_data = [
   },
   {
     name: "HEMNES",
-    image_url: "https://www.ikea.com/us/en/images/products/hemnes-day-bed-frame-with-3-drawers__0636371_PE697851_S5.JPG?f=s",
+    image_url: "https://www.ikea.com/us/en/images/products/brimnes-daybed-frame-with-2-drawers-white__1161827_pe889528_s5.jpg?f=xl",
     description: "Daybed frame with 3 rawers, white, Twin",
     price: "299.00",
-    more_info_url: "https://www.ikea.com/us/en/p/hemnes-daybed-frame-with-3-drawers-white-30349329/"
+    more_info_url: "https://www.ikea.com/us/en/p/brimnes-daybed-frame-with-2-drawers-white-40228708/"
   },
   {
     name: "BJÖRKSNÄS",
@@ -198,10 +198,10 @@ item_seed_data = [
   },
   {
     name: "LINNMON / ADILS",
-    image_url: "https://www.ikea.com/us/en/images/products/linnmon-adils-table-black-brown-black__0737172_PE740915_S5.JPG?f=s",
+    image_url: "https://www.ikea.com/us/en/p/tegeloen-table-outdoor-dark-gray-black-30492143/",
     description: "Table, black-brown, black, 47 1/4x23 5/8",
     price: "38.99",
-    more_info_url: "https://www.ikea.com/us/en/p/linnmon-adils-table-black-brown-black-s39932562/"
+    more_info_url: "https://www.ikea.com/us/en/p/tegeloen-table-outdoor-dark-gray-black-30492143/"
   },
   {
     name: "NORDEN",
@@ -212,17 +212,17 @@ item_seed_data = [
   },
   {
     name: "LINNMON / ALEX",
-    image_url: "https://www.ikea.com/us/en/images/products/linnmon-alex-table-white__0737574_PE741174_S5.JPG?f=s",
+    image_url: "https://www.ikea.com/us/en/images/products/ingatorp-extendable-table-white__0737091_pe740881_s5.jpg?f=xl",
     description: "Table, white, 78 3/4x23 5/8",
     price: "209.99",
-    more_info_url: "https://www.ikea.com/us/en/p/linnmon-alex-table-white-s59932698/"
+    more_info_url: "https://www.ikea.com/us/en/p/ingatorp-extendable-table-white-70221423/"
   },
   {
     name: "KALLAX",
-    image_url: "https://www.ikea.com/us/en/images/products/kallax-desk-combination-white__0366702_PE549115_S5.JPG?f=s",
+    image_url: "https://www.ikea.com/us/en/images/products/micke-desk-white__0736018_pe740345_s5.jpg?f=xl",
     description: "Workstation, white, 30 3/8x57 7/8x62 5/8",
     price: "131.98",
-    more_info_url: "https://www.ikea.com/us/en/p/kallax-workstation-white-s19123063/"
+    more_info_url: "https://www.ikea.com/us/en/p/micke-desk-white-80213074/"
   },
   {
     name: "MICKE",
@@ -236,14 +236,14 @@ item_seed_data = [
     image_url: "https://www.ikea.com/us/en/images/products/nordkisa-dressing-table-bamboo__0756073_PE748752_S5.JPG?f=s",
     description: "Dressing table, bamboo, 29 7/8x18 1/2",
     price: "149.00",
-    more_info_url: "https://www.ikea.com/us/en/p/nordkisa-dressing-table-bamboo-20439472/" 
+    more_info_url: "https://www.ikea.com/us/en/p/nordkisa-dressing-table-bamboo-20439472/"
   },
   {
     name: "GERTON / ODDVALD",
-    image_url: "https://www.ikea.com/us/en/images/products/gerton-oddvald-table-beech-black__0736758_PE740713_S5.JPG?f=s",
+    image_url: "https://www.ikea.com/us/en/images/products/nordviken-extendable-table-antique-stain__1482451_pe1001019_s5.jpg?f=xl",
     description: "Table, beech, black, 61x29 1/2",
     price: "130.00",
-    more_info_url: "https://www.ikea.com/us/en/p/gerton-oddvald-table-beech-black-s29870932/"
+    more_info_url: "https://www.ikea.com/us/en/p/nordviken-extendable-table-antique-stain-80488544/"
   },
   {
     name: "HEMNES",
@@ -289,10 +289,10 @@ item_seed_data = [
   },
   {
     name: "GÅRÖ / RISÖ",
-    image_url: "https://www.ikea.com/us/en/images/products/garoe-risoe-hammock-with-stand__0562742_PE663585_S5.JPG?f=s",
+    image_url: "https://www.ikea.com/us/en/images/products/bockoen-hamnoen-hammock-with-stand-black-anthracite-white__1146335_pe882997_s5.jpg?f=xl",
     description: "Hammock with stand, gray, pale orange",
     price: "95.00",
-    more_info_url: "https://www.ikea.com/us/en/p/garoe-risoe-hammock-with-stand-gray-pale-orange-s59251770/"
+    more_info_url: "https://www.ikea.com/us/en/p/bockoen-hamnoen-hammock-with-stand-black-anthracite-white-s49495778/"
   },
   {
     name: "HÖGSTEN",
@@ -323,12 +323,13 @@ item_seed_data = [
     more_info_url: "https://www.ikea.com/us/en/p/aepplaroe-hoegsten-table-6-armchairs-outdoor-brown-stained-brown-white-s09898526/"
   }
 ]
+
 if ENV['RAILS_ENV'] != "test"
 # unless Rails.env.test?
 # unless Rails.env.test?
   item_seed_data.each do | item_data |
     item = Item.find_by(
-      name: item_data[:name], 
+      name: item_data[:name],
       more_info_url: item_data[:more_info_url]
     )
     if item
