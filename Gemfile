@@ -38,6 +38,7 @@ gem 'mutex_m'
 gem 'logger'
 gem 'bigdecimal'
 gem 'drb'  # Required for Rails parallel test runner
+gem 'benchmark'  # Will be removed from default gems in Ruby 3.5.0
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
