@@ -134,13 +134,6 @@ item_seed_data = [
     more_info_url: "https://www.ikea.com/us/en/p/bjoerksnaes-bed-frame-birch-luroey-s09247573/"
   },
   {
-    name: "GJÖRA",
-    image_url: "https://www.ikea.com/us/en/images/products/gjoera-bed-frame__0524587_PE644399_S5.JPG?f=s",
-    description: "Bed frame, birch, Eidfjord, Queen",
-    price: "429.00",
-    more_info_url: "https://www.ikea.com/us/en/p/gjoera-bed-frame-birch-eidfjord-s09210616/"
-  },
-  {
     name: "SLATTUM",
     image_url: "https://www.ikea.com/us/en/images/products/slattum-upholstered-bed-frame__0768245_PE754387_S5.JPG?f=s",
     description: "Upholstered bed frame, Knisa light gray, Twin",
@@ -198,7 +191,7 @@ item_seed_data = [
   },
   {
     name: "LINNMON / ADILS",
-    image_url: "https://www.ikea.com/us/en/p/tegeloen-table-outdoor-dark-gray-black-30492143/",
+    image_url: "https://www.ikea.com/us/en/images/products/tegeloen-table-outdoor-dark-gray-black__1037369_pe838756_s5.jpg?f=xl",
     description: "Table, black-brown, black, 47 1/4x23 5/8",
     price: "38.99",
     more_info_url: "https://www.ikea.com/us/en/p/tegeloen-table-outdoor-dark-gray-black-30492143/"
