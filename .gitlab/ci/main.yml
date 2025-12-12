@@ -1,0 +1,28 @@
+# Main Branch Pipeline Configuration
+# This pipeline runs when code is merged into the main branch
+
+image: ruby:3.4.6
+
+# Cache configuration for bundle dependencies
+cache:
+  key:
+    files:
+      - Gemfile.lock
+  paths:
+    - vendor/bundle/
+
+# Variables
+variables:
+  CI: 'true'
+
+# Verify application can load (API-only app, no assets to build)
+build_main:
+  stage: build
+  before_script:
+    - gem install bundler
+    - bundle config set --local path 'vendor/bundle'
+    - bundle install --jobs $(nproc)
+  script:
+    - bundle exec rails runner "puts 'Application loaded successfully'"
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"

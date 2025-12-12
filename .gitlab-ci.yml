@@ -1,0 +1,12 @@
+# Main GitLab CI Configuration
+# Includes separate pipeline configurations for merge requests and main branch
+
+# Define stages that will be used across all included pipelines
+stages:
+  - install
+  - test
+  - build
+
+include:
+  - local: '.gitlab/ci/mr.yml'
+  - local: '.gitlab/ci/main.yml'

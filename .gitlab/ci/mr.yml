@@ -1,0 +1,91 @@
+# Merge Request Pipeline Configuration
+# This pipeline runs on branches with open merge requests
+
+image: ruby:3.4.6
+
+# PostgreSQL service for database tests
+services:
+  - postgres:15
+
+# Cache configuration for bundle dependencies
+cache:
+  key:
+    files:
+      - Gemfile.lock
+  paths:
+    - vendor/bundle/
+
+# Variables
+# Note: POSTGRES_PASSWORD should be set as a GitLab CI/CD variable in project settings
+# For a public repository, configure this in: Settings > CI/CD > Variables
+# The password will be automatically used by the PostgreSQL service container
+variables:
+  CI: 'true'
+  RAILS_ENV: 'test'
+  POSTGRES_DB: 'tinndarp_backend_test'
+  POSTGRES_USER: 'postgres'
+  POSTGRES_HOST_AUTH_METHOD: 'trust'
+  # DATABASE_URL will be constructed in before_script using the GitLab CI/CD variable
+
+# Base configuration for jobs that need Ruby/bundler setup
+.base_setup: &base_setup
+  before_script:
+    - gem install bundler
+    - bundle config set --local path 'vendor/bundle'
+    - bundle install --jobs $(nproc)
+
+# Base configuration for jobs that need database access
+.base_database_setup: &base_database_setup
+  before_script:
+    - apt-get update -qq && apt-get install -y -qq postgresql-client
+    - gem install bundler
+    - bundle config set --local path 'vendor/bundle'
+    - bundle install --jobs $(nproc)
+    - export DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}"
+
+# Install dependencies job
+install_dependencies:
+  <<: *base_setup
+  stage: install
+  script:
+    - echo "Dependencies installed successfully"
+  artifacts:
+    paths:
+      - vendor/bundle/
+    expire_in: 1 hour
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+# Setup database job
+setup_database:
+  <<: *base_database_setup
+  stage: test
+  needs:
+    - install_dependencies
+  script:
+    - RAILS_ENV=test bundle exec rake db:create db:migrate
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+# Run tests job
+test:
+  <<: *base_database_setup
+  stage: test
+  needs:
+    - install_dependencies
+    - setup_database
+  script:
+    - RAILS_ENV=test bundle exec rake test
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+
+# Verify application can load (API-only app, no assets to build)
+build_mr:
+  <<: *base_setup
+  stage: build
+  needs:
+    - install_dependencies
+  script:
+    - bundle exec rails runner "puts 'Application loaded successfully'"
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
