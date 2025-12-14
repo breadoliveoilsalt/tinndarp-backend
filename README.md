@@ -28,3 +28,7 @@ After step 4 above (database setup):
 -   Run `rake test`.
 
 Note: If you get a "database does not exist" error, make sure you've run the database setup commands in step 4.
+
+## Manual Deployment to AWS EC2
+
+For instructions on manually deploying this backend to an AWS EC2 instance, see [MANUAL_DEPLOYMENT.md](./MANUAL_DEPLOYMENT.md).
