@@ -345,28 +345,24 @@ Press `Ctrl+C` to exit log viewing.
 
 ## Step 14: Verify Deployment
 
-### Test from EC2 Instance
+### Test Backend API via CloudFront
 
-```bash
-curl http://localhost:3000/api
-```
-
-### Test from Your Local Machine
-
-Get the EC2 public IP from Terraform outputs:
+Get the CloudFront backend API URL from Terraform outputs:
 
 ```bash
 cd tinndarp-terraform
-terraform output ec2_public_ip
+terraform output backend_api_url_https
 ```
 
-Then test:
+Then test from your local machine:
 
 ```bash
-curl http://<ec2-public-ip>:3000/api
+curl https://<cloudfront-backend-api-domain>/api
 ```
 
 You should get a response from the backend API.
+
+**Note**: The backend runs on port 3000 internally, but it's accessed via CloudFront HTTPS in production. The CloudFront distribution provides HTTPS termination and proxies requests to the EC2 instance.
 
 ## Service Management
 
